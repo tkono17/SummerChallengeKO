@@ -1,0 +1,32 @@
+%\documentclass[10pt,a4j]{jarticle}
+\documentclass[10pt]{ujarticle}
+ \usepackage[top=30truemm, bottom=30truemm, left=25truemm, right=25truemm]{geometry}
+ \usepackage{listings}%
+ \usepackage{ascmac}
+ \usepackage{amssymb}
+\usepackage{amsmath}
+ \usepackage{bm}
+ \usepackage{url}%
+ \usepackage[dvipdfmx]{hyperref}
+ \usepackage[dvipdfmx]{graphicx,color}
+\usepackage{pxjahyper}
+%\usepackage[dviout]{graphicx}
+\begin{document}
+
+\tableofcontents
+\clearpage
+
+%include section file
+\input{purpose.tex}
+\input{contents.tex}
+\input{principle.tex}
+\input{detector.tex}
+\input{analyzer.tex}
+\input{summary.tex}
+%
+
+\begin{thebibliography}{9}
+\bibitem{hamamatsu}
+https://www.hamamatsu.com/resources/pdf/ssd/03\_handbook.pdf
+\end{thebibliography}
+\end{document}

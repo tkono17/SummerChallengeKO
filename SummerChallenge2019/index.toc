@@ -1,0 +1,30 @@
+\contentsline {section}{\numberline {1}目的}{2}{section.1}% 
+\contentsline {section}{\numberline {2}演習内容}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}演習１　光子を見る}{2}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}演習２　干渉縞を観測する}{2}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}演習３　1光子の干渉縞を測定する}{2}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}原理}{3}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}光とは}{3}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}光の干渉}{3}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}線状光源}{3}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}単スリット}{4}{subsubsection.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.3}2重スリット}{6}{subsubsection.3.2.3}% 
+\contentsline {subsubsection}{\numberline {3.2.4}参考文献}{6}{subsubsection.3.2.4}% 
+\contentsline {subsection}{\numberline {3.3}光子を数える}{7}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}実験装置}{7}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}MPPC}{7}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}EASIROC}{7}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}データ収集の方法}{8}{subsection.4.3}% 
+\contentsline {section}{\numberline {5}データ解析}{9}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}MPPCで取得されるデータの解析}{9}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}ROOTとは}{9}{subsection.5.2}% 
+\contentsline {subsubsection}{\numberline {5.2.1}Building ROOT}{9}{subsubsection.5.2.1}% 
+\contentsline {subsubsection}{\numberline {5.2.2}ROOTの起動方法}{10}{subsubsection.5.2.2}% 
+\contentsline {subsubsection}{\numberline {5.2.3}ヒストグラムの描き方}{10}{subsubsection.5.2.3}% 
+\contentsline {subsubsection}{\numberline {5.2.4}マクロの書き方}{12}{subsubsection.5.2.4}% 
+\contentsline {subsubsection}{\numberline {5.2.5}ヒストグラムのフィット}{13}{subsubsection.5.2.5}% 
+\contentsline {subsubsection}{\numberline {5.2.6}グラフの描き方}{13}{subsubsection.5.2.6}% 
+\contentsline {subsubsection}{\numberline {5.2.7}結果の保存}{14}{subsubsection.5.2.7}% 
+\contentsline {subsection}{\numberline {5.3}Poisson統計}{15}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}干渉縞の再現}{15}{subsection.5.4}% 
+\contentsline {section}{\numberline {6}まとめ}{16}{section.6}% 
