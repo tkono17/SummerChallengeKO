@@ -5,7 +5,8 @@
 \usepackage{amsmath}
  \usepackage{bm}
  \usepackage[dvipdfmx]{graphicx,color}
- %\usepackage[dviout]{graphicx}
+ \usepackage[dvipdffmx]{hyperref}
+%\usepackage[dviout]{graphicx}
 \begin{document}
 
 \tableofcontents
@@ -176,6 +177,56 @@ I(\theta) = 4I_0 (\frac{\sin \beta}{\beta})^2 \cos^2 \alpha
 
 \section{データ解析}
 \subsection{MPPCで取得されるデータの解析}
+MPPCで取得されるデータはEASIROCによってtree形式で保存される。今回はこのデータをROOTを用いて解析を行う
+。ここから解析に必要なROOTの知識を簡単に説明するが、すべてを説明することはできないためわからない部分>は各自調べるかTAに質問したりするようにしてください。
+ 
+\subsection{ROOTとは}
+ROOTとはCERNが開発したデータ解析のためのフレームワークであり、特によく使われる目的としてはヒストグラ>ム・グラフを描く、任意の関数でフィットする、大量のデータを処理するといったものがある。物理学実験では>大量のデータを扱うため、例えばエクセルのようなものではそれらのデータをプロットしたり複雑な解析を行う>ことは難しくなる。そのため、プログラミングによる解析を行えるようになる必要がある。言語としては主にC++で動作し、pythonで書くこともできるが自分がよく知らないため説明はC++のみとなる。また、ROOTで行えること
+は膨大であるため、できる限り今回必要となる最低限について説明するつもりだがわからない部分も出てくると>思うので、それに関してはTAに聞いたり調べたりしてみてください。
+ROOTをインストールもしくはROOTがインストールされているマシンにSSH接続して、ROOTを使用できる環境が構築
+できていることを仮定して、以下で使い方について説明する。
+ 
+\subsubsection{Building ROOT}
+ 
+\vspace{1cm}
+Windows版
+\vspace{0.5cm}
+ 
+\vspace{1cm}
+\Large{Mac版}
+\normalsize{}
+ 
+\vspace{0.5cm}
+Homebrew
+\vspace{0.3cm}
+ 
+HomebrewはmacOS用のパッケージマネージャーです。
+HomebrewでROOTビルドに必要なCmakeをInstallします。
+Install方法はHPを参考にしてください。
+ 
+\href{https://brew.sh/index_ja.html}{https://brew.sh/index_ja.html}
+ 
+上記のURLよりmacのターミナルにHPに書かれているコマンドを入力する。
+ 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8cm, bb = 0 0 400 300]{Homebrew.png}
+\caption{HomebrewのHP画面。画面下のコマンドをコピーしてターミナル上で実行する。}
+\end{center}
+\end{figure}
+
+
+\vspace{0.5cm}
+ROOT
+\vspace{0.3cm}
+ 
+Git~Clone~コマンドを用いてROOTのSource~fileをDownloadする。
+ 
+\href{https://root.cern.ch/building-root}{https://root.cern.ch/building-root}
+ 
+こちらを参考にCmakeを用いてBuildを行う。
+ 
+
 \subsection{Poisson統計}
 \subsection{干渉縞の再現}
 
