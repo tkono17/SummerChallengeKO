@@ -21,7 +21,7 @@
 \BOOKMARK [3][-]{subsubsection.5.2.1}{Windows Subsystem for Linux \(WSL\) を用いてLinuxを使う}{subsection.5.2}% 21
 \BOOKMARK [3][-]{subsubsection.5.2.2}{SSH接続して Linux サーバーにリモートログインする}{subsection.5.2}% 22
 \BOOKMARK [2][-]{subsection.5.3}{ROOTを用いたデータ解析}{section.5}% 23
-\BOOKMARK [3][-]{subsubsection.5.3.1}{ROOTの起動方法}{subsection.5.3}% 24
+\BOOKMARK [3][-]{subsubsection.5.3.1}{ROOTのビルド方法}{subsection.5.3}% 24
 \BOOKMARK [3][-]{subsubsection.5.3.2}{ヒストグラムの描き方}{subsection.5.3}% 25
 \BOOKMARK [3][-]{subsubsection.5.3.3}{マクロの書き方}{subsection.5.3}% 26
 \BOOKMARK [3][-]{subsubsection.5.3.4}{ヒストグラムのフィット}{subsection.5.3}% 27

@@ -317,8 +317,7 @@ Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は
 \item インストール作業が終わったら、スタートに追加される「Ubuntu」をを起動します。
 \item ユーザー名とパスワード を要求されるため、プロンプトに従って入力していきます。
 \end{enumerate}
-表示されるスクリプト例;
-\begin{lstlisting} 
+\begin{lstlisting}[caption=表示されるスクリプト例]
 Installing, this may take a few minutes...
 Please create a default UNIX user account. The username does not need to match your Windows username.
 For more information visit: https://aka.ms/wslusers
