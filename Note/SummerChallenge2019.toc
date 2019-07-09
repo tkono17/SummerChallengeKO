@@ -21,12 +21,15 @@
 \contentsline {subsubsection}{\numberline {5.2.1}Windows Subsystem for Linux (WSL) を用いてLinuxを使う}{9}{subsubsection.5.2.1}
 \contentsline {subsubsection}{\numberline {5.2.2}SSH接続して Linux サーバーにリモートログインする}{11}{subsubsection.5.2.2}
 \contentsline {subsection}{\numberline {5.3}ROOTを用いたデータ解析}{11}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}ROOTのビルド方法}{11}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}ヒストグラムの描き方}{12}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {5.3.3}マクロの書き方}{15}{subsubsection.5.3.3}
-\contentsline {subsubsection}{\numberline {5.3.4}ヒストグラムのフィット}{15}{subsubsection.5.3.4}
-\contentsline {subsubsection}{\numberline {5.3.5}グラフの描き方}{16}{subsubsection.5.3.5}
-\contentsline {subsubsection}{\numberline {5.3.6}結果の保存}{17}{subsubsection.5.3.6}
-\contentsline {subsection}{\numberline {5.4}Poisson統計}{18}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}干渉縞の再現}{18}{subsection.5.5}
-\contentsline {section}{\numberline {6}まとめ}{19}{section.6}
+\contentsline {subsubsection}{\numberline {5.3.1}ROOTビルドの準備}{12}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}ROOTビルド方法}{13}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}ROOTの環境設定}{13}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}ROOTの起動方法}{13}{subsubsection.5.3.4}
+\contentsline {subsubsection}{\numberline {5.3.5}ヒストグラムの描き方}{14}{subsubsection.5.3.5}
+\contentsline {subsubsection}{\numberline {5.3.6}マクロの書き方}{16}{subsubsection.5.3.6}
+\contentsline {subsubsection}{\numberline {5.3.7}ヒストグラムのフィット}{16}{subsubsection.5.3.7}
+\contentsline {subsubsection}{\numberline {5.3.8}グラフの描き方}{17}{subsubsection.5.3.8}
+\contentsline {subsubsection}{\numberline {5.3.9}結果の保存}{18}{subsubsection.5.3.9}
+\contentsline {subsection}{\numberline {5.4}Poisson統計}{19}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}干渉縞の再現}{19}{subsection.5.5}
+\contentsline {section}{\numberline {6}まとめ}{20}{section.6}

@@ -302,9 +302,8 @@ MPPCで取得されるデータはEASIROCによってtree形式で保存され�
 Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は、 Windows10 から Linux の実行環境を実現するサブシステムです。簡単にいうと、 Windows のアプリケーションとして Linux を実行できます。\\
 
 \vspace{1cm}
-\Large{WSL の有効化}
+{\Large \bf WSL の有効化}
 \vspace{0.5cm}
-\normalsize{}
 
 まず、Windows 側で Linux Subsystem を有効化します。
 \begin{enumerate}
@@ -316,9 +315,8 @@ Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は
 \end{enumerate}
 
 \vspace{1cm}
-\Large{Ubuntu のインストール}
+{\Large \bf Ubuntu のインストール}
 \vspace{0.5cm}
-\normalsize{}
 
 \begin{enumerate}
 \item Microsoft Store で「WSL」と検索します。もしくは「Ubuntu」。
@@ -340,9 +338,15 @@ See ``man sudo_root'' for details.
 \end{lstlisting}
 
 \vspace{1cm}
-\Large{X window のインストール}
+{\Large \bf X window のインストール}
 \vspace{0.5cm}
-\normalsize{}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=14cm]{VcXsrv.png}
+\caption{VcXsrvのHP。Downloadをクリックします。}
+\end{center}
+\end{figure}
 
 Windows OS で X window (画像表示用・root用) を使用するため、「VcXsrv」をインストールします。
 \begin{enumerate}
@@ -362,6 +366,12 @@ Windows OS で X window (画像表示用・root用) を使用するため、「V
 \end{itemize}
 \item システムトレイにVcXsrvのアイコンが表示されていれば OK です。
 \end{enumerate}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=14cm]{XQuartz.png}
+\caption{XQuartzのHP。dmgファイルをクリックします。}
+\end{center}
+\end{figure}
 macOS の場合は、「XQuartz」をインストールします。
 \begin{enumerate}
 \item \url{https://www.xquartz.org/} にアクセスし、 dmg ファイルをダウンロードします。
@@ -372,35 +382,34 @@ macOS の場合は、「XQuartz」をインストールします。
 
 \subsubsection{SSH接続して Linux サーバーにリモートログインする}
 \begin{lstlisting}
-\$ ssh -Y [user name]@[host.IP.Address]
+ssh -Y [user name]@[host.IP.Address]
 \end{lstlisting}
 これで、Linux サーバーにログインできます。
 
 \subsection{ROOTを用いたデータ解析}
+
 ROOTとはCERNが開発したデータ解析のためのフレームワークです。
 特によく使われる目的としてはヒストグラム・グラフを描く、任意の関数でフィットする、大量のデータを処理するといったものがあります。
 物理学実験では大量のデータを扱うため、例えばエクセルのようなものではそれらのデータをプロットしたり複雑な解析を行うことは難しくなります。
 そのため、プログラミングによる解析を行えるようになる必要となります。
 言語としては主にC++で動作し、pythonで書くこともできます。
 
-\subsubsection{ROOTのビルド方法}
-
-自分のPC内にインストールする方法を記します。
+\subsubsection{ROOTビルドの準備}
 
 \vspace{1cm}
-\Large{Windows版}
+{\Large \bf Windows版}
 \vspace{0.5cm}
 
 \vspace{1cm}
-\Large{Mac版}
+{\Large \bf Mac版}
 \normalsize{}
 
 \vspace{0.5cm}
-Homebrew
+Homebrewのインストール
 \vspace{0.3cm}
 
 Homebrew は macOS 用のパッケージマネージャーです。
-Homebrew で ROOT ビルドに必要な Cmake をインストールします。\par
+Homebrew で ROOT ビルドに必要な CMake をインストールします。\par
 Homebrew を使うには、Xcode の Command Line Tools が必要になります。
 ターミナルで次のコマンドを実行し、Xcode をインストールします。
 \begin{lstlisting}
@@ -417,7 +426,7 @@ xcode-select -v
 上記のURLにあるコマンドをターミナルに入力します。
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=8cm, bb = 0 0 400 300]{Homebrew.png}
+\includegraphics[width=14cm]{Homebrew.png}
 \caption{HomebrewのHP画面。画面下のコマンドをコピーしてターミナル上で実行する。}
 \end{center}
 \end{figure}
@@ -427,7 +436,6 @@ xcode-select -v
  /usr/local/share/doc/homebrew
  /usr/local/share/man/man1/brew.1
 ...
- (中略)
 ...
  ==> Installation successful!
 ==> Homebrew has enabled anonymous aggregate formulae and cask analytics.
@@ -439,15 +447,56 @@ https://github.com/Homebrew/brew#donations
 - Run `brew help` to get started
 - Further documentation:
 https://docs.brew.sh
-\end{lstlsitng}
-が表示されれば、インストール完了です。
-\vspace{0.5cm}
-ROOT
-\vspace{0.3cm}
-Git~Clone~コマンドを用いてROOTのSource~fileをDownloadする。
-\url{https://root.cern.ch/building-root}
-こちらを参考にCmakeを用いてBuildを行う。
+\end{lstlisting}
 
+が表示されれば、インストール完了です。\par
+
+\vspace{0.5cm}
+CMakeのインストール
+\vspace{0.3cm}
+
+Homebrew を用いて、CMakeをインストールします。
+\begin{lstlisting}
+brew install cmake
+\end{lstlisting}
+を実行すると、CMakeがインストールできます。
+
+\subsubsection{ROOTビルド方法}
+
+\begin{lstlisting}
+cd ~
+curl -O https://root.cern.ch/download/root_v6.16.00.source.tar.gz
+cd /usr/local
+sudo tar zxvf ~/root_v6.16.00.source.tar.gz
+
+cd /usr/local/root-6.16.00
+sudo mkdir obj
+cd obj
+sudo cmake ..
+
+...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/local/root-6.16.00/obj 
+\end{lstlisting}
+ここまで出ればCMake完了です。
+\begin{lstlisting}
+sudo make -j 8
+
+...
+[100\%] Generating tutorials/hsimple.root
+Processing hsimple.C...
+hsimple : Real Time = 0.06 seconds Cpu Time = 0.05 seconds
+(TFile *) 0x7f9f7cda9760
+[100\%] Built target hsimple 
+\end{lstlisting}
+ここまで出ればBuild完了です。
+\url{https://root.cern.ch/building-root}
+こちらを参考にしてください。
+
+\subsubsection{ROOTの環境設定}
+
+bash
 
 \subsubsection{ROOTの起動方法}
 ROOTの起動方法はコマンドラインに以下のコマンドを入力するだけです。

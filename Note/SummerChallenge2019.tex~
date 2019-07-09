@@ -297,11 +297,12 @@ MPPCで取得されるデータはEASIROCによってtree形式で保存され�
 
 \subsection{データ解析用PC(Linux)にログインする方法}
 ここでは、自分のPCからLinuxにリモートでログインする方法を説明します。
+
 \subsubsection{Windows Subsystem for Linux (WSL) を用いてLinuxを使う}
 Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は、 Windows10 から Linux の実行環境を実現するサブシステムです。簡単にいうと、 Windows のアプリケーションとして Linux を実行できます。\\
 
 \vspace{1cm}
-\Large{WSL の有効化}
+{\Large \bf WSL の有効化}
 \vspace{0.5cm}
 
 まず、Windows 側で Linux Subsystem を有効化します。
@@ -314,7 +315,7 @@ Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は
 \end{enumerate}
 
 \vspace{1cm}
-\Large{Ubuntu のインストール}
+{\Large \bf Ubuntu のインストール}
 \vspace{0.5cm}
 
 \begin{enumerate}
@@ -337,8 +338,15 @@ See ``man sudo_root'' for details.
 \end{lstlisting}
 
 \vspace{1cm}
-\Large{X window のインストール}
+{\Large \bf X window のインストール}
 \vspace{0.5cm}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=14cm]{VcXsrv.png}
+\caption{VcXsrvのHP。Downloadをクリックします。}
+\end{center}
+\end{figure}
 
 Windows OS で X window (画像表示用・root用) を使用するため、「VcXsrv」をインストールします。
 \begin{enumerate}
@@ -358,6 +366,12 @@ Windows OS で X window (画像表示用・root用) を使用するため、「V
 \end{itemize}
 \item システムトレイにVcXsrvのアイコンが表示されていれば OK です。
 \end{enumerate}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=14cm]{XQuartz.png}
+\caption{XQuartzのHP。dmgファイルをクリックします。}
+\end{center}
+\end{figure}
 macOS の場合は、「XQuartz」をインストールします。
 \begin{enumerate}
 \item \url{https://www.xquartz.org/} にアクセスし、 dmg ファイルをダウンロードします。
@@ -368,7 +382,7 @@ macOS の場合は、「XQuartz」をインストールします。
 
 \subsubsection{SSH接続して Linux サーバーにリモートログインする}
 \begin{lstlisting}
-\$ ssh -Y [user name]@[host.IP.Address]
+ssh -Y [user name]@[host.IP.Address]
 \end{lstlisting}
 これで、Linux サーバーにログインできます。
 
@@ -384,15 +398,15 @@ ROOTとはCERNが開発したデータ解析のためのフレームワークで
 自分のPC内にインストールする方法を記します。
 
 \vspace{1cm}
-\Large{Windows版}
+{\Large \bf Windows版}
 \vspace{0.5cm}
 
 \vspace{1cm}
-\Large{Mac版}
+{\Large \bf Mac版}
 \normalsize{}
 
 \vspace{0.5cm}
-Homebrew
+Homebrewのインストール
 \vspace{0.3cm}
 
 Homebrew は macOS 用のパッケージマネージャーです。
@@ -413,7 +427,7 @@ xcode-select -v
 上記のURLにあるコマンドをターミナルに入力します。
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=8cm, bb = 0 0 400 300]{Homebrew.png}
+\includegraphics[width=14cm]{Homebrew.png}
 \caption{HomebrewのHP画面。画面下のコマンドをコピーしてターミナル上で実行する。}
 \end{center}
 \end{figure}
@@ -423,7 +437,6 @@ xcode-select -v
  /usr/local/share/doc/homebrew
  /usr/local/share/man/man1/brew.1
 ...
- (中略)
 ...
  ==> Installation successful!
 ==> Homebrew has enabled anonymous aggregate formulae and cask analytics.
@@ -435,11 +448,24 @@ https://github.com/Homebrew/brew#donations
 - Run `brew help` to get started
 - Further documentation:
 https://docs.brew.sh
-\end{lstlsitng}
-が表示されれば、インストール完了です。
+\end{lstlisting}
+
+が表示されれば、インストール完了です。\par
+
 \vspace{0.5cm}
-ROOT
+Cmakeのインストール
 \vspace{0.3cm}
+
+Homebrew を用いて、Cmakeをインストールします。
+\begin{lstlisting}
+brew install cmake
+\end{lstlisting}
+を実行すると、Cmakeがインストールできます。
+
+\vspace{0.5cm}
+ROOTのビルド
+\vspace{0.3cm}
+
 Git~Clone~コマンドを用いてROOTのSource~fileをDownloadする。
 \url{https://root.cern.ch/building-root}
 こちらを参考にCmakeを用いてBuildを行う。
