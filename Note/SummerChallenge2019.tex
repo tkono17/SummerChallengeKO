@@ -1,5 +1,5 @@
-%\documentclass[10pt,a4j]{jarticle}
-\documentclass[10pt]{ujarticle}
+%\documentclass[10pt]{ujarticle}
+\documentclass[10pt,a4j]{jarticle}
 \usepackage[top=30truemm, bottom=30truemm, left=25truemm, right=25truemm]{geometry}
 \usepackage{listings}
 \usepackage{ascmac}
@@ -337,6 +337,16 @@ To run a command as administrator (user ``root''), use ``sudo''.
 See ``man sudo_root'' for details.
 \end{lstlisting}
 
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item パッケージのアップデート\\
+パッケージのアップデートは日々行ったほうが良いです。
+\end{enumerate}
+\begin{lstlisting}
+sudo apt update
+sudo apt upgrade
+\end{lstlisting}
+
 \vspace{1cm}
 {\Large \bf X window のインストール}
 \vspace{0.5cm}
@@ -398,6 +408,84 @@ ROOTとはCERNが開発したデータ解析のためのフレームワークで
 
 \vspace{1cm}
 {\Large \bf Windows版}
+\normalsize{}
+
+\vspace{0.5cm}
+パッケージの準備
+\vspace{0.3cm}
+
+ROOTをUbuntu上で動かすにはあらかじめいくつかのパッケージをインストールしておく必要があります。次のURLにあるUbuntuのところのパッケージをインストールしてください。（すでにされているものもあると思います。）\\
+\url{https://root.cern.ch/build-prerequisites}\\
+最低限下記のものはインストールしてください。
+\begin{lstlisting}
+sudo apt-get install git dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
+\end{lstlisting}
+
+\vspace{0.3cm}
+ROOTのソースファイルをダウンロード
+\vspace{0.3cm}
+
+Ubuntu用にコンパイルしたファイル をCERNが用意してくれています。\\
+ROOTソースファイルのダウンロードは以下のページから。\\
+\url{https://root.cern.ch/downloading-root}
+\\
+「Latest ROOT Releases Pro」をクリックすると、ダウンロード可能なファイルの一覧が表示されます。\\
+あらかじめ
+\begin{lstlisting}
+gcc -v
+\end{lstlisting}
+でgccのバージョンを確認してください。「Binary distributions」のところの同じバージョンのものをダウンロードしてください。
+
+\vspace{0.3cm}
+ファイルの展開
+\vspace{0.3cm}
+
+自分はホームディレクトリに「local」というディレクトリを作り、ここにインストールします。\\
+「local」に先ほどダウンロードしたものをコピーしてきてください。
+\begin{lstlisting}
+mkdir local
+cp (ファイルの場所) ./local/
+\end{lstlisting}
+ダウンロードしたファイルを次のコマンドで展開します。展開後は「root」というファイルが生成されます。
+\begin{lstlisting}
+cd local
+tar zxvf root_v6.18.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+ls
+root  root_v6.18.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+\end{lstlisting}
+root/bin/　にある「thisroot.sh」がROOTを実行するシェルファイルです。\\
+\begin{lstlisting}
+cd root/bin/
+ls
+\end{lstlisting}
+権限を確認します。
+\begin{lstlisting}
+ls -l
+\end{lstlisting}
+読み取りの権限がなかったら権限を変更します。\\
+参考(\url{https://eng-entrance.com/linux-command-chmod}、\url{https://www.server-memo.net/tips/command/chmod/chmod.html})
+\begin{lstlisting}
+chmod 550 thisroot.sh
+\end{lstlisting}
+今回は書き込むことはないので、「読み込み」と「実行」を許可します。
+
+\vspace{0.3cm}
+.bash\_profileに追記
+\vspace{0.3cm}
+
+Ubuntuの起動時に毎回thisroot.shが実行されるようにします。
+\begin{lstlisting}
+vim ~/.bash_profile
+\end{lstlisting}
+のコマンドでエディタを開いたあと以下を追記(usernameは自分のUbuntuのユーザー名に)
+\begin{lstlisting}
+source ~/home/username/usr/root/bin/thisroot.sh
+\end{lstlisting}
+一度Ubuntuを閉じてもう一度起動し、下のコマンドを入力してROOTが起動すれば成功です。
+\begin{lstlisting}
+root
+\end{lstlisting}
+
 \vspace{0.5cm}
 
 \vspace{1cm}
