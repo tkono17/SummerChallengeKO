@@ -13,17 +13,6 @@ def sendCommand(ser, data):
     a=ser.read(100)
     return a
 
-
-args = sys.argv
-parser = argparse.ArgumentParser(
-    prog=args[0],
-    usage="Move Stage",
-    description="HELP",
-    epilog="END",
-    add_help=True,
-    )
-
-
 ser = serial.Serial(port='/dev/ttyS0', baudrate=9600, timeout=1)
 
 
@@ -36,14 +25,14 @@ check = re.compile(sym)
 matchObj = check.match(regex)
 
 if matchObj:
-    t = t
+    t = 0
 else:
     t = t + 1
     print ("Error:No Such Command")
 
 if t==0:
     pattern = re.compile(regex)
-    matchObj = pattern.match("-h")
+    matchObj = pattern.match("-o")
     if matchObj:
         print (matchObj.group())
         regex2 = r"%s"%args[2]
@@ -87,6 +76,7 @@ if t==0:
     if matchObj:
         print (matchObj.group())
         regex2 = r"%s"%args[2]
+        print(regex2)
         n = r"[+]P\d|[-]P\d"
         num = re.compile(n)
         matchNum = num.match(regex2)
@@ -115,7 +105,6 @@ if t==0:
         print(c1)
         print(read)
 
-ser.close()
 
 #print(ser.name)
 #print(a)
@@ -153,3 +142,5 @@ while False:
 
 #ser.write("G:".encode())
 #print('M:1+P1000'.encode())
+#print('G:'.encode())
+ser.close()
