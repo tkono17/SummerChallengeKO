@@ -20,7 +20,7 @@ int moveStage(int n) {
   sleep(3);
   return 0;
 }
-
+ 
 int takeData() {
   std::cout << "Taking data for 5 seconds" << std::endl;
   system("echo 'sleeping'; sleep 5");

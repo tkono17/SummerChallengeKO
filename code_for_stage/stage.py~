@@ -21,7 +21,7 @@ parser = argparse.ArgumentParser(
     add_help = True,
     )
 
-parser.add_argument('-o', '--origin', help='back to the origin', nargs='?')
+parser.add_argument('-o', '--origin', help='back to the origin', nargs=0)
 parser.add_argument('-r', '--reset', help='reset data', action='store_true')
 parser.add_argument('-mr', '--moveright', help='move right by number of pulses', nargs=1, type=int)
 parser.add_argument('-ml', '--moveleft', help='move left by number of pulses', nargs=1, type=int)

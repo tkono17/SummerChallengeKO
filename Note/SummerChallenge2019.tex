@@ -295,14 +295,14 @@ User Guideに簡単な操作法が記されているが、ボード仕様書に�
 \subsection{MPPCで取得されるデータの解析}
 MPPCで取得されるデータはEASIROCによってtree形式で保存される。今回はこのデータをROOTを用いて解析を行う。ここから解析に必要なROOTの知識を簡単に説明するが、すべてを説明することはできないためわからない部分は各自調べるかTAに質問したりするようにしてください。
 
-\subsection{データ解析用PC(Linux)にログインする方法}
+\subsection{データ解析用PCにログインする}
 ここでは、自分のPCからLinuxにリモートでログインする方法を説明します。
 
 \subsubsection{Windows Subsystem for Linux (WSL) を用いてLinuxを使う}
-Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は、 Windows10 から Linux の実行環境を実現するサブシステムです。簡単にいうと、 Windows のアプリケーションとして Linux を実行できます。\\
+Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は、 Windows10 から Linux の実行環境を実現するサブシステムです。簡単にいうと、 Windows のアプリケーションとして Linux を実行できます。
 
 \vspace{1cm}
-{\Large \bf WSL の有効化}
+{\large \bf WSL の有効化}
 \vspace{0.5cm}
 
 まず、Windows 側で Linux Subsystem を有効化します。
@@ -315,7 +315,7 @@ Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は
 \end{enumerate}
 
 \vspace{1cm}
-{\Large \bf Ubuntu のインストール}
+{\large \bf Ubuntu のインストール}
 \vspace{0.5cm}
 
 \begin{enumerate}
@@ -338,7 +338,7 @@ See ``man sudo_root'' for details.
 \end{lstlisting}
 
 \vspace{1cm}
-{\Large \bf X window のインストール}
+{\large \bf X window のインストール}
 \vspace{0.5cm}
 
 \begin{figure}[h]
@@ -380,13 +380,13 @@ macOS の場合は、「XQuartz」をインストールします。
 \item インストールが完了すると、/アプリケーション/ユーティリティ/ に XQuartz.app が作成されていますので、正常に起動するか確認します。
 \end{enumerate}
 
-\subsubsection{SSH接続して Linux サーバーにリモートログインする}
+\subsubsection{SSH接続でリモートログインする}
 \begin{lstlisting}
-ssh -Y [user name]@[host.IP.Address]
+\$ ssh -Y [user name]@[host.IP.Address]
 \end{lstlisting}
 これで、Linux サーバーにログインできます。
 
-\subsection{ROOTを用いたデータ解析}
+\subsection{ROOTのインストール方法}
 
 ROOTとはCERNが開発したデータ解析のためのフレームワークです。
 特によく使われる目的としてはヒストグラム・グラフを描く、任意の関数でフィットする、大量のデータを処理するといったものがあります。
@@ -397,15 +397,15 @@ ROOTとはCERNが開発したデータ解析のためのフレームワークで
 \subsubsection{ROOTビルドの準備}
 
 \vspace{1cm}
-{\Large \bf Windows版}
+{\large \bf Windows版}
 \vspace{0.5cm}
 
 \vspace{1cm}
-{\Large \bf Mac版}
+{\large \bf Mac版}
 \normalsize{}
 
 \vspace{0.5cm}
-Homebrewのインストール
+{\bf Homebrewのインストール}
 \vspace{0.3cm}
 
 Homebrew は macOS 用のパッケージマネージャーです。
@@ -413,12 +413,12 @@ Homebrew で ROOT ビルドに必要な CMake をインストールします。\
 Homebrew を使うには、Xcode の Command Line Tools が必要になります。
 ターミナルで次のコマンドを実行し、Xcode をインストールします。
 \begin{lstlisting}
-xcode-select --install
+\$ xcode-select --install
 \end{lstlisting}
 インストーラーの指示にしたがって、インストールを完了させます。
 正常にインストールされていることを確認するため、
 \begin{lstlisting}
-xcode-select -v
+\$ xcode-select -v
 \end{lstlisting}
 を実行します。バージョンが表示されていればインストール完了です。\par
 次に、Homebrew をインストールします。
@@ -431,13 +431,8 @@ xcode-select -v
 \end{center}
 \end{figure}
 \begin{lstlisting}[caption=Homebrewインストール時のスクリプト]
-==> This script will install:
- /usr/local/bin/brew
- /usr/local/share/doc/homebrew
- /usr/local/share/man/man1/brew.1
 ...
-...
- ==> Installation successful!
+==> Installation successful!
 ==> Homebrew has enabled anonymous aggregate formulae and cask analytics.
 Read the analytics documentation (and how to opt-out) here:
 https://docs.brew.sh/Analytics
@@ -452,7 +447,7 @@ https://docs.brew.sh
 が表示されれば、インストール完了です。\par
 
 \vspace{0.5cm}
-CMakeのインストール
+{\bf CMakeのインストール}
 \vspace{0.3cm}
 
 Homebrew を用いて、CMakeをインストールします。
@@ -464,39 +459,42 @@ brew install cmake
 \subsubsection{ROOTビルド方法}
 
 \begin{lstlisting}
-cd ~
-curl -O https://root.cern.ch/download/root_v6.16.00.source.tar.gz
-cd /usr/local
-sudo tar zxvf ~/root_v6.16.00.source.tar.gz
+\$ cd ~
+\$ curl -O https://root.cern.ch/download/root_v6.16.00.source.tar.gz
+\$ cd /usr/local
+\$ sudo tar zxvf ~/root_v6.16.00.source.tar.gz
 
-cd /usr/local/root-6.16.00
-sudo mkdir obj
-cd obj
-sudo cmake ..
+\$ cd /usr/local/root-6.16.00
+\$ sudo mkdir obj
+\$ cd obj
+\$ sudo cmake ..
 
 ...
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /usr/local/root-6.16.00/obj 
 \end{lstlisting}
+
 ここまで出ればCMake完了です。
-\begin{lstlisting}
-sudo make -j 8
+
+\begin{lstlisting}[escapechar=!]
+\$ sudo make -j 8
 
 ...
-[100\%] Generating tutorials/hsimple.root
+[100%] Generating tutorials/hsimple.root
 Processing hsimple.C...
 hsimple : Real Time = 0.06 seconds Cpu Time = 0.05 seconds
 (TFile *) 0x7f9f7cda9760
-[100\%] Built target hsimple 
+[100%] Built target hsimple 
 \end{lstlisting}
-ここまで出ればBuild完了です。
-\url{https://root.cern.ch/building-root}
-こちらを参考にしてください。
+
+ここまで出ればビルド完了です\footnote{\url{https://root.cern.ch/building-root}を参考にしてください。}。
 
 \subsubsection{ROOTの環境設定}
 
 bash
+
+\subsection{ROOTを用いたデータ解析}
 
 \subsubsection{ROOTの起動方法}
 ROOTの起動方法はコマンドラインに以下のコマンドを入力するだけです。
@@ -587,7 +585,7 @@ example.root内にさらにtreeという名前でtreeを作っている場合、
 ヒストグラムを書くときに、ただそのまま書くだけでなく様々な条件をかけることもできる。例えば、tree-$>$Draw(''adc*2'')とすれば、adcの値を2倍したヒストグラムを描くことができ、tree-$>$Draw(''adc'',''adc>900'')とすればadcが900より大きいイベントのみ描くことができます。この条件には、ほかのBranchを用いることもできtree-$>$Draw(''adc'',''adc\_l $>$ 1000 \&adc\_l $<$ 3000'')とすれば1000$<$adc\_l$<$3000のみのヒストグラムを描くことができる。ただし、ある程度複雑な条件になってくるとこの書き方をするのは難しくなってくるので、後述するマクロを書いてヒストグラムを描くことをお勧めする。
 
 最後にtreeをそのままdrawする以外のヒストグラムの描き方として、Fillという方法がある。簡単な例として、自分でガウス分布に従う乱数を発生させてそれをヒストグラムに詰めるやり方を紹介する。
-\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+\begin{lstlisting}
     TH1D *h1 = new TH1D(''h1'',''h1'',50,-5,5);
     for(Int_t i = 0;i < 10000;i++){
      Double_t x = gRandom->Gaus();
@@ -611,7 +609,7 @@ void macro(){
 
 もう一つ必要な知識として、詳しい解析を行う際にはBranchのデータをヒストグラムとしてではなく値として取り出す必要がある。そのためこれも簡単にではあるが、値としての取り出し方を説明する。
 
-\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+\begin{lstlisting}
 void macro(){
     TFile *file = new TFile(inputfilename, "read"); 
     TTree *tree = (TTree*)file->Get("tree");

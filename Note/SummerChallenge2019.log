@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.9.12)  9 JUL 2019 20:04
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.9.12)  10 JUL 2019 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -583,6 +583,14 @@ File: XQuartz.png Graphic file (type bmp)
 File: Homebrew.png Graphic file (type bmp)
 <Homebrew.png>
  [12]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 6.73553pt on input line 493.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 5.77332pt on input line 493.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 5.77332pt on input line 493.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.77332pt on input line 493.
 File: ROOT_logo.png Graphic file (type bmp)
 <ROOT_logo.png>
 File: SummerChallenge_open_root.png Graphic file (type bmp)
@@ -597,14 +605,6 @@ Overfull \hbox (15.33333pt too wide) in paragraph at lines 545--561
  [][][] 
  []
 
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 564.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 564.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 564.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 564.
 File: SummerChallenge_tree_draw_adc.png Graphic file (type bmp)
 <SummerChallenge_tree_draw_adc.png>
 File: SummerChallenge_tree_draw_adc30.png Graphic file (type bmp)
@@ -638,7 +638,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 784.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 784.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 784.
 Package rerunfilecheck Info: File `SummerChallenge2019.out' has not changed.
-(rerunfilecheck)             Checksum: CC08EBFA49B55C68E7FA7E0F4F02C53E;2591.
+(rerunfilecheck)             Checksum: 8ED338BA2F7E3D01B1395AE6EEC93C50;2632.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -646,12 +646,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 784.
  ) 
 Here is how much of TeX's memory you used:
- 8434 strings out of 493270
- 118372 string characters out of 6145018
- 329526 words of memory out of 5000000
- 12226 multiletter control sequences out of 15000+600000
+ 8427 strings out of 493270
+ 118308 string characters out of 6145018
+ 313526 words of memory out of 5000000
+ 12219 multiletter control sequences out of 15000+600000
  19109 words of font info for 86 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 28i,13n,49p,1237b,1917s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,13n,49p,1237b,1292s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SummerChallenge2019.dvi (20 pages, 115856 bytes).
+Output written on SummerChallenge2019.dvi (20 pages, 115164 bytes).
