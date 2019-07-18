@@ -1,8 +1,0 @@
-# Debug FPGA resister name
-StartDefinition PinName
-word_5
-word_3
-word_2
-word_1
-word_0
-EndDefinition
