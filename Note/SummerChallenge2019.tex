@@ -430,56 +430,73 @@ ROOTソースファイルのダウンロードは以下のページから。\\
 \url{https://root.cern.ch/downloading-root}
 \\
 「Latest ROOT Releases Pro」をクリックすると、ダウンロード可能なファイルの一覧が表示されます。\\
-あらかじめ
-\begin{lstlisting}
-gcc -v
-\end{lstlisting}
-でgccのバージョンを確認してください。「Binary distributions」のところの同じバージョンのものをダウンロードしてください。
+%あらかじめ
+%\begin{lstlisting}
+%gcc -v
+%\end{lstlisting}
+%でgccのバージョンを確認してください。「Binary distributions」のところの同じバージョンのものをダウンロードしてください。
 
-\vspace{0.3cm}
-ファイルの展開
-\vspace{0.3cm}
+%\vspace{0.3cm}
+%ファイルの展開
+%\vspace{0.3cm}
 
-自分はホームディレクトリに「local」というディレクトリを作り、ここにインストールします。\\
-「local」に先ほどダウンロードしたものをコピーしてきてください。
+%自分はホームディレクトリに「local」というディレクトリを作り、ここにインストールします。\\
+ダウンロードするディレクトリを作成します。
 \begin{lstlisting}
 mkdir local
-cp (ファイルの場所) ./local/
 \end{lstlisting}
-ダウンロードしたファイルを次のコマンドで展開します。展開後は「root」というファイルが生成されます。
+次のコマンドで最新のバージョンのrootがダウンロードされます。
 \begin{lstlisting}
 cd local
-tar zxvf root_v6.18.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+git clone http://github.com/root-project/root.git
 ls
-root  root_v6.18.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+-root
 \end{lstlisting}
-root/bin/　にある「thisroot.sh」がROOTを実行するシェルファイルです。\\
+ROOTをbuildするディレクトリを作成します。
 \begin{lstlisting}
-cd root/bin/
+mkdir root_build
 ls
+-root  root_build
+cd root_build
 \end{lstlisting}
-権限を確認します。
+cmakeを行い、ROOTの構築に必要なファイルを生成する。
 \begin{lstlisting}
-ls -l
+cmake ../root
 \end{lstlisting}
-読み取りの権限がなかったら権限を変更します。\\
-参考(\url{https://eng-entrance.com/linux-command-chmod}、\url{https://www.server-memo.net/tips/command/chmod/chmod.html})
+cmakeの実行が終了し、問題なければbuildを開始する。
 \begin{lstlisting}
-chmod 550 thisroot.sh
+cmake --build . [-- <options to the native tool>]
+cmake --build . -- -jN
 \end{lstlisting}
-今回は書き込むことはないので、「読み込み」と「実行」を許可します。
-
+オプションは下記のサイトで確認。2つ目のコマンドですると、buildをスピードアップできる。Nは利用可能なコア数により2や4などの数字を打つ。\\
+参考URL(\url{https://root.cern.ch/building-root})\\
+下記のコマンドを打ってROOTが起動すればbuildに成功しています。
+\begin{lstlisting}
+source bin/thisroot.sh
+root
+\end{lstlisting}
 \vspace{0.3cm}
-.bash\_profileに追記
+パスを通す
 \vspace{0.3cm}
 
 Ubuntuの起動時に毎回thisroot.shが実行されるようにします。
 \begin{lstlisting}
+vim ~/.bashrc
+\end{lstlisting}
+のコマンドでエディタを開いたあと以下を追記
+\begin{lstlisting}
+#ROOT
+. ~/local/root_build/bin/thisroot.sh
+\end{lstlisting}
+Ubuntuの起動時に.bashrcが読み込まれるようにします。
+\begin{lstlisting}
 vim ~/.bash_profile
 \end{lstlisting}
-のコマンドでエディタを開いたあと以下を追記(usernameは自分のUbuntuのユーザー名に)
+のコマンドでエディタを開いたあと以下を追記
 \begin{lstlisting}
-source ~/home/username/usr/root/bin/thisroot.sh
+if [ -f ~/.bashrc ]; then
+        . ~/bashrc
+fi        
 \end{lstlisting}
 一度Ubuntuを閉じてもう一度起動し、下のコマンドを入力してROOTが起動すれば成功です。
 \begin{lstlisting}
