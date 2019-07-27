@@ -15,7 +15,8 @@
 ## code_for_stage
 可動式ステージを動かすためのコード
 
-## scripts
+## references
+参考文献
 
 # KEKに持っていくList
 ## 神戸大
