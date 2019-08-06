@@ -294,8 +294,8 @@ EASIROCチップは、Pre-Amp,Shaper,Discriminator,Capacitorからなる。Pre-A
 \begin{enumerate}
 \item EASIROCモジュールにアクセスする(ウィンドウ1)
 \begin{lstlisting}
-\$ cd EASIROC / easiroc
-\$ ./ easiroc 192.168.10.102 3
+\$ cd EASIROC/easiroc
+\$ ./easiroc 192.168.10.102 3
 
 \ I'm ： 192.168.10.102
 \ Please select
@@ -317,8 +317,8 @@ EASIROCチップは、Pre-Amp,Shaper,Discriminator,Capacitorからなる。Pre-A
 \end{itemize}
 \item udp102を立ち上げる(ウィンドウ2)。
 \begin{lstlisting}
-\$ cd EASIROC / easiroc / easiroc_UDPcontrol
-\$ ./ udp102
+\$ cd EASIROC/easiroc/easiroc_UDPcontrol
+\$ ./udp102
 \end{lstlisting}
 ここで用いるコマンド番号は以下の様になっている。
 \begin{itemize}
@@ -382,6 +382,16 @@ To run a command as administrator (user ``root''), use ``sudo''.
 See ``man sudo_root'' for details.
 \end{lstlisting}
 
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item パッケージのアップデート\\
+パッケージのアップデートは日々行ったほうが良いです。
+\end{enumerate}
+\begin{lstlisting}
+sudo apt update
+sudo apt upgrade
+\end{lstlisting}
+
 \vspace{1cm}
 {\large \bf X window のインストール}
 \vspace{0.5cm}
@@ -443,6 +453,90 @@ ROOTとはCERNが開発したデータ解析のためのフレームワークで
 
 \vspace{1cm}
 {\large \bf Windows版}
+\vspace{0.5cm}
+
+\vspace{0.5cm}
+パッケージの準備
+\vspace{0.3cm}
+
+ROOTをUbuntu上で動かすにはあらかじめいくつかのパッケージをインストールしておく必要があります。次のURLにあるUbuntuのところのパッケージをインストールしてください。（すでにされているものもあると思います。）\\
+\url{https://root.cern.ch/build-prerequisites}\\
+最低限下記のものはインストールしてください。
+\begin{lstlisting}
+sudo apt-get install git dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
+\end{lstlisting}
+
+\vspace{0.3cm}
+ROOTのソースファイルをダウンロード
+\vspace{0.3cm}
+
+Ubuntu用にコンパイルしたファイル をCERNが用意してくれています。\\
+ROOTソースファイルのダウンロードは以下のページから。\\
+\url{https://root.cern.ch/downloading-root}
+\\
+「Latest ROOT Releases Pro」をクリックすると、ダウンロード可能なファイルの一覧が表示されます。\\
+ダウンロードするディレクトリを作成します。
+\begin{lstlisting}
+mkdir local
+\end{lstlisting}
+次のコマンドで最新のバージョンのrootがダウンロードされます。
+\begin{lstlisting}
+cd local
+git clone http://github.com/root-project/root.git
+ls
+-root
+\end{lstlisting}
+ROOTをbuildするディレクトリを作成します。
+\begin{lstlisting}
+mkdir root_build
+ls
+-root  root_build
+cd root_build
+\end{lstlisting}
+cmakeを行い、ROOTの構築に必要なファイルを生成する。
+\begin{lstlisting}
+cmake ../root
+\end{lstlisting}
+cmakeの実行が終了し、問題なければbuildを開始する。
+\begin{lstlisting}
+cmake --build . [-- <options to the native tool>]
+cmake --build . -- -jN
+\end{lstlisting}
+オプションは下記のサイトで確認。2つ目のコマンドですると、buildをスピードアップできる。Nは利用可能なコア数により2や4などの数字を打つ。\\
+参考URL(\url{https://root.cern.ch/building-root})\\
+下記のコマンドを打ってROOTが起動すればbuildに成功しています。
+\begin{lstlisting}
+source bin/thisroot.sh
+root
+\end{lstlisting}
+\vspace{0.3cm}
+パスを通す
+\vspace{0.3cm}
+
+Ubuntuの起動時に毎回thisroot.shが実行されるようにします。
+\begin{lstlisting}
+vim ~/.bashrc
+\end{lstlisting}
+のコマンドでエディタを開いたあと以下を追記
+\begin{lstlisting}
+#ROOT
+. ~/local/root_build/bin/thisroot.sh
+\end{lstlisting}
+Ubuntuの起動時に.bashrcが読み込まれるようにします。
+\begin{lstlisting}
+vim ~/.bash_profile
+\end{lstlisting}
+のコマンドでエディタを開いたあと以下を追記
+\begin{lstlisting}
+if [ -f ~/.bashrc ]; then
+        . ~/bashrc
+fi        
+\end{lstlisting}
+一度Ubuntuを閉じてもう一度起動し、下のコマンドを入力してROOTが起動すれば成功です。
+\begin{lstlisting}
+root
+\end{lstlisting}
+
 \vspace{0.5cm}
 
 \vspace{1cm}
