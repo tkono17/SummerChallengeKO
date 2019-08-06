@@ -1,5 +1,5 @@
-%\documentclass[10pt,a4j]{jarticle}
-\documentclass[10pt]{ujarticle}
+\documentclass[10pt,a4j]{jarticle}
+%\documentclass[10pt]{ujarticle}
 \usepackage[top=30truemm, bottom=30truemm, left=25truemm, right=25truemm]{geometry}
 \usepackage{listings}
 \usepackage{ascmac}
@@ -284,12 +284,57 @@ EASIROCチップは、Pre-Amp,Shaper,Discriminator,Capacitorからなる。Pre-A
 \end{minipage}
 \end{tabular}
 \end{figure}
-\subsection{データ収集の方法}
-詳しくはマニュアル参照。\\
-EASROCボードのそれぞれのチャンネルが何をするものかは、User Guideの１章を参照すること。
-２章には、EASIROCボードの制御法が記されている。EASIROCボードと交信し、制御するソフトウェアの名前もeasirocである。各種パラメータを反映したり、データ取得モードの指令もここから行う。印加するHVの制御及びモニタリングはudpで行う。ターミナルを２つ以上立ち上げて同時に操作するとよい。\\
-easiroc IPアドレス(おそらく192.168.10.102) DAQmode(とりあえず3でOK)で特定のIPアドレスのEASIROCボードをそのDAQmodeで制御できる。多チャンネル読み出しなので、ReadSC\_Channnel1.txtでanalog outputから出すチャンネルを選び、ソフトウェアeasirocの指令2でそれを反映すると、オシロスコープで波形を観察できる。\\
-User Guideに簡単な操作法が記されているが、ボード仕様書にはさらに細かい情報が載っているので、困ったら参照すること。
+\subsection{EASIROCを用いたデータ収集の手順}
+%詳しくはマニュアル参照。\\
+%EASROCボードのそれぞれのチャンネルが何をするものかは、User Guideの１章を参照すること。
+%２章には、EASIROCボードの制御法が記されている。EASIROCボードと交信し、制御するソフトウェアの名前もeasirocである。各種パラメータを反映したり、データ取得モードの指令もここから行う。印加するHVの制御及びモニタリングはudpで行う。ターミナルを２つ以上立ち上げて同時に操作するとよい。\\
+%easiroc IPアドレス(おそらく192.168.10.102) DAQmode(とりあえず3でOK)で特定のIPアドレスのEASIROCボードをそのDAQmodeで制御できる。多チャンネル読み出しなので、ReadSC\_Channnel1.txtでanalog outputから出すチャンネルを選び、ソフトウェアeasirocの指令2でそれを反映すると、オシロスコープで波形を観察できる。\\
+%User Guideに簡単な操作法が記されているが、ボード仕様書にはさらに細かい情報が載っているので、困ったら参照すること。
+２つの実行ファイルを並行して操作する必要があるため、2つのウィンドウを立ち上げる。これらを今後、ウィンドウ1,ウィンドウ2と区別する。
+\begin{enumerate}
+\item EASIROCモジュールにアクセスする(ウィンドウ1)
+\begin{lstlisting}
+\$ cd EASIROC / easiroc
+\$ ./ easiroc 192.168.10.102 3
+
+\ I'm ： 192.168.10.102
+\ Please select
+\ 1. Transmit SC
+\ 2. Tranmit Read SC
+\ 3. ASIC Initialize
+\ 4. Transmit Probe
+\ 5. Connection Close
+\ 6. Start DAQ 
+\ 7. Debug
+\ input # === >
+\end{lstlisting}
+"Please select" 以降の文字が表示されていればOK。以降でこれら7つのコマンドを使い分け、EASIROCを操作する。主な各コマンドの操作内容は次のようになっている。
+\begin{itemize}
+\item 1.EASIROC 測定後でもオシロスコープで波形を見ることができる
+\item 2.どのチャンネルが出力されるか確認(今回はch.12 から出力される信号のみを見るため特に出番はない)
+\item 3.接続を切る
+\item 4.測定を開始する
+\end{itemize}
+\item udp102を立ち上げる(ウィンドウ2)。
+\begin{lstlisting}
+\$ cd EASIROC / easiroc / easiroc_UDPcontrol
+\$ ./ udp102
+\end{lstlisting}
+ここで用いるコマンド番号は以下の様になっている。
+\begin{itemize}
+\item 1 HighVoltage の設定この時打った電圧が全チャンネルに反映される.）
+\item 2 HiVol と電流のステータス(電流は正常な値で数uA 程度である。10 倍以上の電流が流れるようであればすぐにHiVol を0 にすること)
+\item 5 exit
+\end{itemize}
+\item ウィンドウ２にてコマンド"2"を入力し印加電圧を設定する。印加電圧は53.5から54V程度が好ましく、それ以上に設定するとMPPCに負担がかかるため極力上げないこと。
+\item ウィンドウ1でコマンド"1"→"2"を入力し、オシロスコープにて波形を確認する。
+\item ウィンドウ1でコマンド"6"を入力し、測定を開始する。
+\end{enumerate}
+コマンド"6"を入力した後、保存したいファイルの名前と測定するイベント数を入力。
+\begin{lstlisting}
+Input output data file name : ファイル名.dat 　
+Input total # of events ===== > 欲しいイベントの数
+\end{lstlisting}
 
 \section{データ解析}
 \subsection{MPPCで取得されるデータの解析}

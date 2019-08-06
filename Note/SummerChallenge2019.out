@@ -14,7 +14,7 @@
 \BOOKMARK [1][-]{section.4}{実験装置}{}% 14
 \BOOKMARK [2][-]{subsection.4.1}{MPPC}{section.4}% 15
 \BOOKMARK [2][-]{subsection.4.2}{EASIROC}{section.4}% 16
-\BOOKMARK [2][-]{subsection.4.3}{データ収集の方法}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.3}{EASIROCを用いたデータ収集の手順}{section.4}% 17
 \BOOKMARK [1][-]{section.5}{データ解析}{}% 18
 \BOOKMARK [2][-]{subsection.5.1}{MPPCで取得されるデータの解析}{section.5}% 19
 \BOOKMARK [2][-]{subsection.5.2}{データ解析用PCにログインする}{section.5}% 20
