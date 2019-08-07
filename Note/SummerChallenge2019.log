@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.2.13)  7 AUG 2019 14:43
+This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.2.13)  7 AUG 2019 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -575,21 +575,21 @@ File: XQuartz.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11]
+[11] [12] [13]
 File: Homebrew.png Graphic file (type bmp)
 <Homebrew.png>
- [12] [13]
+ [14]
 File: ROOT_logo.png Graphic file (type bmp)
 <ROOT_logo.png>
 File: SummerChallenge_open_root.png Graphic file (type bmp)
 <SummerChallenge_open_root.png>
- [14]
+ [15]
 File: SummerChallenge_tree_print.png Graphic file (type bmp)
 <SummerChallenge_tree_print.png>
 File: SummerChallenge_tree_scan.png Graphic file (type bmp)
 <SummerChallenge_tree_scan.png>
 
-Overfull \hbox (15.33333pt too wide) in paragraph at lines 603--619
+Overfull \hbox (15.33333pt too wide) in paragraph at lines 697--713
  [][][] 
  []
 
@@ -598,48 +598,51 @@ File: SummerChallenge_tree_draw_adc.png Graphic file (type bmp)
 File: SummerChallenge_tree_draw_adc30.png Graphic file (type bmp)
 <SummerChallenge_tree_draw_adc30.png>
 
-Overfull \hbox (15.33333pt too wide) in paragraph at lines 625--642
+Overfull \hbox (15.33333pt too wide) in paragraph at lines 719--736
  [][][] 
  []
 
 
-Overfull \hbox (10.1116pt too wide) in paragraph at lines 645--646
+Overfull \hbox (10.1116pt too wide) in paragraph at lines 739--740
 \OML/cmm/m/it/10 >$\OT1/cmr/m/n/10 Draw(''adc*2'') \JY1/mc/m/n/10 とすれば 、 \
 OT1/cmr/m/n/10 adc \JY1/mc/m/n/10 の値を \OT1/cmr/m/n/10 2 \JY1/mc/m/n/10 倍し
 たヒストグラムを描くことができ 、 \OT1/cmr/m/n/10 tree-$\OML/cmm/m/it/10 >$\OT1
 /cmr/m/n/10 Draw(''adc'',''adc>900'')
  []
 
-[15]
+[16] [17]
 File: SummerChallenge_fit_gaus.png Graphic file (type bmp)
 <SummerChallenge_fit_gaus.png>
- [16] [17] [18]
+ [18] [19] [20]
 File: SummerChallenge_poisson.png Graphic file (type bmp)
 <SummerChallenge_poisson.png>
 File: SummerChallenge_gauss.png Graphic file (type bmp)
 <SummerChallenge_gauss.png>
- [19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 842.
- [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 842.
+ [21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 936.
+ [22]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 936.
  (./SummerChallenge2019.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 842.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 842.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 936.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 936.
 Package rerunfilecheck Info: File `SummerChallenge2019.out' has not changed.
 (rerunfilecheck)             Checksum: 3DD98A6738B1ECBEB420780C45671DFE;2651.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 842.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 936.
  ) 
 Here is how much of TeX's memory you used:
- 8734 strings out of 493226
- 122873 string characters out of 6144095
- 486732 words of memory out of 5000000
- 12540 multiletter control sequences out of 15000+600000
+ 8798 strings out of 493226
+ 123499 string characters out of 6144095
+ 484732 words of memory out of 5000000
+ 12604 multiletter control sequences out of 15000+600000
  24699 words of font info for 98 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  29i,13n,49p,886b,2009s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SummerChallenge2019.dvi (21 pages, 122020 bytes).
+Output written on SummerChallenge2019.dvi (23 pages, 132108 bytes).
