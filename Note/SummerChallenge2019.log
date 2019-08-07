@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.2.13)  7 AUG 2019 15:36
+This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.2.13)  7 AUG 2019 15:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -456,10 +456,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 46.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-File: TenkiNoKo_Titlepage.png Graphic file (type bmp)
-<TenkiNoKo_Titlepage.png>
- [1
+) [1
 
 ]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
@@ -631,18 +628,15 @@ Package rerunfilecheck Info: File `SummerChallenge2019.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 936.
  ) 
 Here is how much of TeX's memory you used:
- 8798 strings out of 493226
- 123499 string characters out of 6144095
+ 8794 strings out of 493226
+ 123371 string characters out of 6144095
  484732 words of memory out of 5000000
- 12604 multiletter control sequences out of 15000+600000
+ 12602 multiletter control sequences out of 15000+600000
  24699 words of font info for 98 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 29i,13n,49p,886b,2009s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,13n,49p,886b,2009s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SummerChallenge2019.dvi (23 pages, 132108 bytes).
+Output written on SummerChallenge2019.dvi (23 pages, 131976 bytes).
