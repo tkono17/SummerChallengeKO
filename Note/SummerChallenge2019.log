@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.9.12)  18 AUG 2019 22:28
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.9.12)  18 AUG 2019 22:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -448,8 +448,11 @@ LaTeX Info: Redefining \nameref on input line 35.
 \@outlinefile=\write3
 \openout3 = `SummerChallenge2019.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 46.
 
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 46.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -465,44 +468,44 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 48.
 
-(./SummerChallenge2019.toc
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
-)
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write4
 \openout4 = `SummerChallenge2019.toc'.
 
- [1] [2]
+[1]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 56.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 56.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 59.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+ [2
+
+]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 89.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 89.
+File: SummerChallenge_lineray.png Graphic file (type bmp)
+<SummerChallenge_lineray.png>
  [3
 
 ]
-File: SummerChallenge_lineray.png Graphic file (type bmp)
-<SummerChallenge_lineray.png>
- [4
-
-] [5
+[4
 
 ]
 File: SummerChallenge_slit.png Graphic file (type bmp)
 <SummerChallenge_slit.png>
-
-[6]
+ [5]
 File: SummerChallenge_2slits.png Graphic file (type bmp)
 <SummerChallenge_2slits.png>
- [7
+ [6
 
 ]
 File: setup.png Graphic file (type bmp)
@@ -519,10 +522,16 @@ Overfull \hbox (14.1167pt too wide) in paragraph at lines 242--262
  []
 
 
+LaTeX Warning: Citation `hamamatsu' on page 7 undefined on input line 263.
+
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: EASIROCCircuitDiagram.PNG Graphic file (type bmp)
 <EASIROCCircuitDiagram.PNG>
+[7
+
+]
 File: preamp.BMP Graphic file (type bmp)
 <preamp.BMP>
 File: fastshaper.BMP Graphic file (type bmp)
@@ -542,29 +551,26 @@ Overfull \hbox (21.99995pt too wide) in paragraph at lines 275--301
 [][][][] 
  []
 
-[8
-
-]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] [10] [11] [12]
+[8] [9] [10] [11]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 474.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 477.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 474.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 477.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 474.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
-(Font)              using `JT1/mc/m/n' instead on input line 475.
+(Font)              using `JT1/mc/m/n' instead on input line 478.
 
 
 LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
-(Font)              using `JY1/mc/m/n' instead on input line 475.
+(Font)              using `JY1/mc/m/n' instead on input line 478.
 
-[13]
+[12]
 File: VcXsrv.png Graphic file (type bmp)
 <VcXsrv.png>
 File: XQuartz.png Graphic file (type bmp)
@@ -573,21 +579,30 @@ File: XQuartz.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14] [15] [16]
+[13] [14] [15]
 File: Homebrew.png Graphic file (type bmp)
 <Homebrew.png>
- [17]
+ [16]
 File: ROOT_logo.png Graphic file (type bmp)
 <ROOT_logo.png>
+
+
+LaTeX Warning: Reference `fig:ROOT_logo' on page 17 undefined on input line 753
+.
+
+
+LaTeX Warning: Reference `fig:open_ROOT' on page 17 undefined on input line 773
+.
+
 File: SummerChallenge_open_root.png Graphic file (type bmp)
 <SummerChallenge_open_root.png>
- [18]
+[17]
 File: SummerChallenge_tree_print.png Graphic file (type bmp)
 <SummerChallenge_tree_print.png>
 File: SummerChallenge_tree_scan.png Graphic file (type bmp)
 <SummerChallenge_tree_scan.png>
 
-Overfull \hbox (15.33333pt too wide) in paragraph at lines 782--798
+Overfull \hbox (15.33333pt too wide) in paragraph at lines 785--801
  [][][] 
  []
 
@@ -596,49 +611,65 @@ File: SummerChallenge_tree_draw_adc.png Graphic file (type bmp)
 File: SummerChallenge_tree_draw_adc30.png Graphic file (type bmp)
 <SummerChallenge_tree_draw_adc30.png>
 
-Overfull \hbox (15.33333pt too wide) in paragraph at lines 804--821
+Overfull \hbox (15.33333pt too wide) in paragraph at lines 807--824
  [][][] 
  []
 
-[19]
-Overfull \hbox (10.1116pt too wide) in paragraph at lines 824--825
+[18]
+Overfull \hbox (10.1116pt too wide) in paragraph at lines 827--828
 \OML/cmm/m/it/10 >$\OT1/cmr/m/n/10 Draw(''adc*2'') \JY1/mc/m/n/10 とすれば 、 \
 OT1/cmr/m/n/10 adc \JY1/mc/m/n/10 の値を \OT1/cmr/m/n/10 2 \JY1/mc/m/n/10 倍し
 たヒストグラムを描くことができ 、 \OT1/cmr/m/n/10 tree-$\OML/cmm/m/it/10 >$\OT1
 /cmr/m/n/10 Draw(''adc'',''adc>900'')
  []
 
-[20]
+[19]
 File: SummerChallenge_fit_gaus.png Graphic file (type bmp)
 <SummerChallenge_fit_gaus.png>
- [21] [22]
+ [20] [21]
+
+LaTeX Warning: Reference `sec:lastsection' on page 22 undefined on input line 9
+61.
+
 File: SummerChallenge_poisson.png Graphic file (type bmp)
 <SummerChallenge_poisson.png>
 File: SummerChallenge_gauss.png Graphic file (type bmp)
 <SummerChallenge_gauss.png>
- [23] [24]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1021.
- [25]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1021.
+[22] [23]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1024.
+ [24]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1024.
  (./SummerChallenge2019.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1021.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1021.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1024.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1024.
 
-Package rerunfilecheck Info: File `SummerChallenge2019.out' has not changed.
-(rerunfilecheck)             Checksum: FD5705F09D8A53F5B2B79DEE8BF21A54;3024.
 
+
+Package rerunfilecheck Warning: File `SummerChallenge2019.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `SummerChallenge2019.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  FD5705F09D8A53F5B2B79DEE8BF21A54;3024.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1021.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1024.
  ) 
 Here is how much of TeX's memory you used:
- 8800 strings out of 493281
- 123364 string characters out of 6145041
+ 8787 strings out of 493281
+ 123179 string characters out of 6145041
  316403 words of memory out of 5000000
- 12556 multiletter control sequences out of 15000+600000
+ 12545 multiletter control sequences out of 15000+600000
  24699 words of font info for 98 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 28i,13n,49p,886b,1954s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,13n,49p,886b,1891s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SummerChallenge2019.dvi (26 pages, 144536 bytes).
+Output written on SummerChallenge2019.dvi (25 pages, 122760 bytes).
