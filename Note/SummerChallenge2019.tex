@@ -229,13 +229,34 @@ I(\theta) = 4I_0 \left(\frac{\sin \beta}{\beta}\right)^2 \cos^2 \alpha
 
 
 \section{実験装置}
-用いる実験装置は、光検出デバイスMPPC、MPPC読み出しモジュールEASIROC、暗箱、光学機器、スリット、しぼり、LED。光学機器を図のように並べ、光の干渉を起こす。各デバイスの位置や距離によって干渉の見え方が変わるが、これは実際に物を置いていろいろ試してみるとよい。以下では、光検出器とその読み出しについて説明する。
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=12cm]{setup.png}
+\includegraphics[width=12cm]{setup2019.png}
 \end{center}
-\caption{セットアップ}
+\caption{実験の模式図}
 \end{figure}
+
+本実験で用いる実験装置。
+\begin{itemize}
+\item 光源（LED）
+\item 光検出器（MPPC）
+\item MPPC読み出しモジュール（EASIROC）
+\item スリット（単スリット・二重スリット）
+\item 可動式ステージ\par
+「Stage Controller」で制御。MPPCが設置されている基盤の位置を可動式ステージで細かく変更することが可能。
+\item 波高発生器（PULSE GENERATOR）\par
+  非常に高い(1kHz)周期で矩形波を出力。出力と同期してトリガーを出力することも可能。
+\item レベルアダプター（LEVEL ADAOTER）\par
+  TTL 入力信号をNIM 信号に変換し、出力。
+\item ディスクリミネータ（DISCRIMINATOR）\par
+  アナログ入力信号の大きさがあるしきい値以上の場合に論理信号を出力。
+\item 遅延回路（DELAY）\par
+  信号を遅らせるもの。要は長いケーブル。
+\item 測定用PC \par
+  EASIROCの制御や、可動式ステージの制御を行う。データ取得まで行うことができる。
+\end{itemize}
+光学機器を図のように並べ、光の干渉を起こす。各デバイスの位置や距離によって干渉の見え方が変わるが、これは実際に物を置いていろいろ試してみるとよい。以下では、光検出器とその読み出しについて説明する。
+
 \subsection{MPPC}
 MPPC(Micro Pixel Photon Counter)はAvalamche Photo Diode(APD)が多数配列された光検出器である。APDは半導体でできている。P型とN型、異なるドープ型の半導体にある向きで電圧をかけると、キャリアの少ない空乏層ができる。ここに光子が入射すると、光電効果で電子をはじき出す。電子は印加電圧によってエネルギーを持ち、さらに周囲の原子殻内電子をはじき出し、雪崩(Avalanche)的に電子を倍増する。印加電圧によって様々な倍増モードがあるが、MPPC内のAPDでは、十分な印加電圧をかけることで入射光子数によらない出力電流を得る(ガイガーモード)。このガイガーモードAPDが多数配列することにより、我々は光子が入射したAPDのチャンネル数だけを数えることで、(pile upはあるものの)光子数をデジタルに数えることができる。
 \begin{figure}[h]
