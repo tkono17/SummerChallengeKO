@@ -299,15 +299,53 @@ EASIROCチップは、Pre-Amp,Shaper,Discriminator,Capacitorからなる。Pre-A
 \end{minipage}
 \end{tabular}
 \end{figure}
-\subsection{EASIROCを用いたデータ収集の手順}
-%詳しくはマニュアル参照。\\
-%EASROCボードのそれぞれのチャンネルが何をするものかは、User Guideの１章を参照すること。
-%２章には、EASIROCボードの制御法が記されている。EASIROCボードと交信し、制御するソフトウェアの名前もeasirocである。各種パラメータを反映したり、データ取得モードの指令もここから行う。印加するHVの制御及びモニタリングはudpで行う。ターミナルを２つ以上立ち上げて同時に操作するとよい。\\
-%easiroc IPアドレス(おそらく192.168.10.102) DAQmode(とりあえず3でOK)で特定のIPアドレスのEASIROCボードをそのDAQmodeで制御できる。多チャンネル読み出しなので、ReadSC\_Channnel1.txtでanalog outputから出すチャンネルを選び、ソフトウェアeasirocの指令2でそれを反映すると、オシロスコープで波形を観察できる。\\
-%User Guideに簡単な操作法が記されているが、ボード仕様書にはさらに細かい情報が載っているので、困ったら参照すること。
-２つの実行ファイルを並行して操作する必要があるため、2つのウィンドウを立ち上げる。これらを今後、ウィンドウ1,ウィンドウ2と区別する。
-\begin{enumerate}
-\item EASIROCモジュールにアクセスする(ウィンドウ1)
+
+\section{測定方法}
+
+\subsection{可動式ステージの使用方法}
+
+可動式ステージは、stage.pyを用いて制御する。使用するためのコマンドは、以下の通りである。
+\begin{lstlisting}[caption=stage.pyのコマンド]
+\$ python stage.py ［コマンド］  
+\end{lstlisting}
+
+\begin{table}[htbp]
+  \begin{center}
+    \caption{stage.py コマンド一覧}
+    \begin{tabular}{|l|l|l|} \hline
+      入力コマンド & 使い方 & 動作 \\ \hline \hline
+      -o & -o & left or right 側の原点に戻る \\ \hline
+      -r & -r & データリセット、現在地を原点とする \\ \hline
+      -mr & -mr [整数値] & 今いるところから[整数値]パルス分+側へ移動 \\ \hline
+      -ml & -ml [整数値] & 今いるところから[整数値]パルス分-側へ移動 \\ \hline
+      -pr & -pr [整数値] & 絶対的な座標位置+[整数値]パルスへ移動 \\ \hline
+      -pl & -pl [整数値] & 絶対的な座標位置-[整数値]パルスへ移動 \\ \hline
+      -s & -s & 動作停止 \\ \hline
+      -q & -q & ステージの情報を表示 \\ \hline
+      -h & -h & コマンドの使い方表示 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{itembox}[l]{注意事項}
+  \begin{itemize}
+  \item 動く距離とパルスの関係は2μm/パルス。
+  \item 一度の操作で送ることのできるコマンドは1つ。 
+  \item 複数送った場合、コマンド一覧の上から順に優先順位がついており、優先順位が最も高いものの動作を行う。
+  \end{itemize}
+  例えば、{\tt \$ ./stage.py -ml 1000 -mr 20000 -s -o +} とコマンドを送っても, {\tt -o} のみが認識される。
+\end{itembox}
+
+
+\subsection{EASOROCの使用方法}
+
+\subsubsection{EASIROCモジュールへのアクセス}
+
+\begin{lstlisting}[caption=EASIROCモジュールへのアクセス]
+  \$ EASIROC/easiroc/easiroc 192.168.10.102 3
+\end{lstlisting}
+でEASIROCモジュールへのアクセスが可能になる。数字の部分はEASIROCのIPアドレス。
+
 \begin{lstlisting}
 \$ cd EASIROC/easiroc
 \$ ./easiroc 192.168.10.102 3
@@ -319,38 +357,83 @@ EASIROCチップは、Pre-Amp,Shaper,Discriminator,Capacitorからなる。Pre-A
 \ 3. ASIC Initialize
 \ 4. Transmit Probe
 \ 5. Connection Close
-\ 6. Start DAQ 
+\ 6. Start DAQ
 \ 7. Debug
 \ input # === >
 \end{lstlisting}
-"Please select" 以降の文字が表示されていればOK。以降でこれら7つのコマンドを使い分け、EASIROCを操作する。主な各コマンドの操作内容は次のようになっている。
-\begin{itemize}
-\item 1.EASIROC 測定後でもオシロスコープで波形を見ることができる
-\item 2.どのチャンネルが出力されるか確認(今回はch.12 から出力される信号のみを見るため特に出番はない)
-\item 3.接続を切る
-\item 4.測定を開始する
-\end{itemize}
-\item udp102を立ち上げる(ウィンドウ2)。
-\begin{lstlisting}
-\$ cd EASIROC/easiroc/easiroc_UDPcontrol
-\$ ./udp102
-\end{lstlisting}
-ここで用いるコマンド番号は以下の様になっている。
-\begin{itemize}
-\item 1 HighVoltage の設定この時打った電圧が全チャンネルに反映される.）
-\item 2 HiVol と電流のステータス(電流は正常な値で数uA 程度である。10 倍以上の電流が流れるようであればすぐにHiVol を0 にすること)
-\item 5 exit
-\end{itemize}
-\item ウィンドウ２にてコマンド"2"を入力し印加電圧を設定する。印加電圧は53.5から54V程度が好ましく、それ以上に設定するとMPPCに負担がかかるため極力上げないこと。
-\item ウィンドウ1でコマンド"1"→"2"を入力し、オシロスコープにて波形を確認する。
-\item ウィンドウ1でコマンド"6"を入力し、測定を開始する。
-\end{enumerate}
-コマンド"6"を入力した後、保存したいファイルの名前と測定するイベント数を入力。
-\begin{lstlisting}
-Input output data file name : ファイル名.dat 　
-Input total # of events ===== > 欲しいイベントの数
-\end{lstlisting}
+{\tt ``Please select''} 以降の文字が表示されていればOK。以降でこれら7つのコマンドを使い分け、EASIROCを操作する。主な各コマンドの操作内容は次のようになっている。
 
+\begin{table}[htbp]
+  \begin{center}
+    \caption{easiroc コマンド一覧}
+    \begin{tabular}{|l|l|} \hline
+      入力コマンド & 動作 \\ \hline \hline
+      1 & EASIROC 測定後でもオシロスコープで波形を見ることができる \\ \hline
+      2 & どのチャンネルを出力するかを決める（今回はch.12 から出力される信号のみを見るため特に出番はない） \\ \hline
+      5 & 接続を切る \\ \hline
+      6 & 測定開始 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\subsubsection{印加電圧の設定}
+
+EASIROC起動後に
+\begin{lstlisting}[caption=印加電圧の設定]
+  \$ cd EASIROC/easiroc/easiroc_UDPcontrol
+  \$ ./udp102
+\end{lstlisting}
+を実行することで、印加電圧を設定することができる。udp102を実行する。（102はipアドレスの最後のところ）
+\begin{table}[htbp]
+  \begin{center}
+    \caption{UDPcontrol コマンド一覧}
+    \begin{tabular}{|l|l|} \hline
+      入力コマンド & 動作 \\ \hline \hline
+      1 & HighVoltageの設定（この時打った電圧が全チャンネルに反映される） \\ \hline
+      2 & HighVoltageのステータス（電流は正常な値で数uA 程度である。10 倍以上の電流が流れるようであればすぐにHighVoltage を0 にすること) \\ \hline
+      3 & 実際にかかっている電圧 \\ \hline
+      5 & exit \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{itembox}[l]{注意事項}
+  \begin{itemize}
+    \item easirocで接続してからudp102を起動
+    \item udp102を終了してからeasirocの接続を切る\par
+      （切るときはHighVolの設定を0にしてから何度か2でステータスを確認して、4V程度になったことを確認してから切る）
+    \item 1で電圧をかける前に変な電圧がかかっていないか2でステータスを確認する
+  \end{itemize}
+\end{itembox}
+
+\subsubsection{EASIROC測定手順}
+
+２つの実行ファイルを並行して操作する必要があるため、2つのウィンドウを立ち上げる。これらを今後、ウィンドウ1,ウィンドウ2と区別する。また、測定結果も測定時に同時に確認したい場合は、ウィンドウを3つ用意する。
+
+\begin{enumerate}
+\item EASIROCモジュールへアクセスする（ウィンドウ1）
+\item 印加電圧を設定する（ウィンドウ2）
+\item ウィンドウ2でコマンド''2''を打って印加電圧を設定する。印加電圧は53.5から54V程度が好ましく、それ以上に設定するとMPPCに負担がかかるため極力上げないこと。
+\item ウィンドウ1でコマンド''1''→''2''を入力し、オシロスコープにて波形を確認する。
+\item ウィンドウ1でコマンド''6''を入力し、測定を開始する\par
+  \begin{lstlisting}[caption=測定手順]
+    input # ===>6
+    Input output data file name : ファイル名.dat
+    Input total # of events =====> 欲しいイベント数
+  \end{lstlisting}
+\item 測定結果の確認\par
+  別ウィンドウ（ウィンドウ3）にて
+  \begin{lstlisting}[caption=測定結果の確認]
+    \$ root
+   root[0] .L fullcheck6.C
+   root[1] fullcheck6(''[file name].dat'')
+   root[2] TBrowser tb
+  \end{lstlisting}
+  TBrowserが起動するので,その中から{\tt [file name].root}を探してその中のch.12に保存されているプロットが測定結果
+\end{enumerate}
+rootの使い方に関しては、6.4節を参照。\par
+データの収集方法についても、詳しくはマニュアル参照。EASROCボードのそれぞれのチャンネルが何をするものかは、User Guideの１章を参照すること。２章には、EASIROCボードの制御法が記されている。\par
+User Guideに簡単な操作法が記されているが、ボード仕様書にはさらに細かい情報が載っているので、困ったら参照すること。
 \section{データ解析}
 \subsection{MPPCで取得されるデータの解析}
 MPPCで取得されるデータはEASIROCによってtree形式で保存される。今回はこのデータをROOTを用いて解析を行う。ここから解析に必要なROOTの知識を簡単に説明するが、すべてを説明することはできないためわからない部分は各自調べるかTAに質問したりするようにしてください。
