@@ -361,7 +361,7 @@ EASIROCチップは、Pre-Amp,Shaper,Discriminator,Capacitorからなる。Pre-A
 \ 7. Debug
 \ input # === >
 \end{lstlisting}
-{\tt ``Please select''} 以降の文字が表示されていればOK。以降でこれら7つのコマンドを使い分け、EASIROCを操作する。主な各コマンドの操作内容は次のようになっている。
+{\tt ”Please select''} 以降の文字が表示されていればOK。以降でこれら7つのコマンドを使い分け、EASIROCを操作する。主な各コマンドの操作内容は次のようになっている。
 
 \begin{table}[htbp]
   \begin{center}
@@ -369,12 +369,14 @@ EASIROCチップは、Pre-Amp,Shaper,Discriminator,Capacitorからなる。Pre-A
     \begin{tabular}{|l|l|} \hline
       入力コマンド & 動作 \\ \hline \hline
       1 & EASIROC 測定後でもオシロスコープで波形を見ることができる \\ \hline
-      2 & どのチャンネルを出力するかを決める（今回はch.12 から出力される信号のみを見るため特に出番はない） \\ \hline
+      2 & どのチャンネルを出力するかを決める \\ \hline
       5 & 接続を切る \\ \hline
       6 & 測定開始 \\ \hline
     \end{tabular}
   \end{center}
 \end{table}
+
+今回はch.12から出力される信号のみを見るため、コマンド"2"の出番はない。
 
 \subsubsection{印加電圧の設定}
 
@@ -383,14 +385,14 @@ EASIROC起動後に
   \$ cd EASIROC/easiroc/easiroc_UDPcontrol
   \$ ./udp102
 \end{lstlisting}
-を実行することで、印加電圧を設定することができる。udp102を実行する。（102はipアドレスの最後のところ）
+を実行することで、印加電圧を設定することができる。udp102を実行する。（102はIPアドレスの最後のところ）
 \begin{table}[htbp]
   \begin{center}
     \caption{UDPcontrol コマンド一覧}
     \begin{tabular}{|l|l|} \hline
       入力コマンド & 動作 \\ \hline \hline
       1 & HighVoltageの設定（この時打った電圧が全チャンネルに反映される） \\ \hline
-      2 & HighVoltageのステータス（電流は正常な値で数uA 程度である。10 倍以上の電流が流れるようであればすぐにHighVoltage を0 にすること) \\ \hline
+      2 & HighVoltageのステータス \\ \hline
       3 & 実際にかかっている電圧 \\ \hline
       5 & exit \\ \hline
     \end{tabular}
@@ -400,6 +402,7 @@ EASIROC起動後に
 \begin{itembox}[l]{注意事項}
   \begin{itemize}
     \item easirocで接続してからudp102を起動
+   \item 電流は正常な値で数uA 程度である。10 倍以上の電流が流れるようであればすぐにHighVoltage を0 にすること
     \item udp102を終了してからeasirocの接続を切る\par
       （切るときはHighVolの設定を0にしてから何度か2でステータスを確認して、4V程度になったことを確認してから切る）
     \item 1で電圧をかける前に変な電圧がかかっていないか2でステータスを確認する
@@ -416,24 +419,23 @@ EASIROC起動後に
 \item ウィンドウ2でコマンド''2''を打って印加電圧を設定する。印加電圧は53.5から54V程度が好ましく、それ以上に設定するとMPPCに負担がかかるため極力上げないこと。
 \item ウィンドウ1でコマンド''1''→''2''を入力し、オシロスコープにて波形を確認する。
 \item ウィンドウ1でコマンド''6''を入力し、測定を開始する\par
-  \begin{lstlisting}[caption=測定手順]
-    input # ===>6
-    Input output data file name : ファイル名.dat
-    Input total # of events =====> 欲しいイベント数
-  \end{lstlisting}
+\begin{lstlisting}[caption=測定手順]
+\ input # ===>6
+\ Input output data file name : ファイル名.dat
+\ Input total # of events =====> 欲しいイベント数
+\end{lstlisting}
 \item 測定結果の確認\par
-  別ウィンドウ（ウィンドウ3）にて
-  \begin{lstlisting}[caption=測定結果の確認]
-    \$ root
-   root[0] .L fullcheck6.C
-   root[1] fullcheck6(''[file name].dat'')
-   root[2] TBrowser tb
-  \end{lstlisting}
-  TBrowserが起動するので,その中から{\tt [file name].root}を探してその中のch.12に保存されているプロットが測定結果
+  別ウィンドウ（ウィンドウ3）にて、
+\begin{lstlisting}[caption=測定結果の確認]
+\$ root
+\ root[0] .L fullcheck6.C
+\ root[1] fullcheck6(''ファイル名.dat'')
+\ root[2] TBrowser tb
+\end{lstlisting}
+TBrowserが起動するので,その中から{\tt ファイル名.root}を探してその中のch.12に保存されているプロットが測定結果。
 \end{enumerate}
 rootの使い方に関しては、6.4節を参照。\par
-データの収集方法についても、詳しくはマニュアル参照。EASROCボードのそれぞれのチャンネルが何をするものかは、User Guideの１章を参照すること。２章には、EASIROCボードの制御法が記されている。\par
-User Guideに簡単な操作法が記されているが、ボード仕様書にはさらに細かい情報が載っているので、困ったら参照すること。
+データの収集方法についても、詳しくはマニュアル参照。EASROCボードのそれぞれのチャンネルが何をするものかは、User Guideの１章を参照すること。２章には、EASIROCボードの制御法が記されている。User Guideに簡単な操作法が記されているが、ボード仕様書にはさらに細かい情報が載っているので、困ったら参照すること。
 \section{データ解析}
 \subsection{MPPCで取得されるデータの解析}
 MPPCで取得されるデータはEASIROCによってtree形式で保存される。今回はこのデータをROOTを用いて解析を行う。ここから解析に必要なROOTの知識を簡単に説明するが、すべてを説明することはできないためわからない部分は各自調べるかTAに質問したりするようにしてください。
