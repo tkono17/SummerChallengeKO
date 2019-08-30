@@ -3,17 +3,21 @@
 
 ## Lab_notebook
 実験ノート
-* yyyymmdd_Kobeuniv.md : 神戸大プレテストの時の実験ノート
-* yyyymmdd_KEK.md : KEKプレテストの時の実験ノート
+- yyyymmdd_Kobeuniv.md : 神戸大プレテストの時の実験ノート
+- yyyymmdd_KEK.md : KEKプレテストの時の実験ノート
 
 ## Note
-演習テキスト
+- 演習テキスト  
+- figure置き場
+
+## easiroc
+- EASIROC自動化コード
 
 ## code
-データ取得のためのコード
+- データ取得のためのコード
 
-## code_for_stage
-可動式ステージを動かすためのコード
+## moving_stage
+- 可動式ステージを動かすためのコード
 
 ## references
 参考文献
