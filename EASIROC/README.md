@@ -9,7 +9,9 @@
 ### easiroc
 easiroc自動化に伴ってConnectSiTCP.cc を直接いじる方針になったので、バックアップ用のもとのコードを残させた。それがこれ。
 ### easiroc_autoOP
-この中に実際に自動化させたコードが入ってる。自動化させた方での実行の仕方は、例えばtest_i.dat, step 幅(stage が測定毎に動く幅) 3mm, move 幅(全体で動く幅) 70mm のとき : 
+この中に実際に自動化させたコードが入ってる。
+#### easiroc/
+自動化させた方での実行の仕方は、例えばtest_i.dat, step 幅(stage が測定毎に動く幅) 3mm, move 幅(全体で動く幅) 70mm のとき : 
 - "6.StartDAQ" で測定開始させた後、"Input output file name : "と聞かれるのでtest_ と入力 
 - 次に "Input step width[mm] : " と聞かれるので3 を入力
 - んで"Input move width[mm] : " と聞かれるので70 を入力
@@ -23,11 +25,15 @@ easiroc自動化に伴ってConnectSiTCP.cc を直接いじる方針になった
 4. 指定されたステップ幅で(今回の場合3mm)動く
 3~ 4 を繰り返す。って感じ。
 2 の工程は大したもんで、ConnectSiTCP.cc の中に"int start_point = 30909 - 250* move_width" という行があって、この数字をちゃんと考えて設定してた。素晴らしい。
-### fullcheck.cc
+### /easiroc/fullcheck.cc
 .dat から.root へ一括変換してくれる素晴らしいやつ。 使う方法は
 1. root -l
 2. .L fullcheck6.C
 3. .L fullcheck.cc
 4. fullcheck("directory名", "ファイル名(今回の場合 test_ )", "ファイルの数");
+
+### /./easiroc_TA
+この辺は谷口がDAQ 班がコードを書くために試しに自分でコードを書いてみたものが入っているだけ
+特に大したものではないので見なくていいです。
 
 
