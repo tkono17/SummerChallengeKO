@@ -1,0 +1,63 @@
+{
+    "name": "latexmk",
+    "dockerComposeFile": "docker-compose.yml",
+    "extensions": ["james-yu.latex-workshop"],
+    "service": "latexmk",
+    "settings": {
+    "latex-workshop.latex.autoBuild.interval": 0,
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.latex.outDir": "out",
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.latex.recipes": [
+    {
+    "name": "latexmk 🔃",
+    "tools": ["latexmk", "make-output-dir", "copy-artifacts"]
+    },
+    {
+    "name": "latexmk with lualatex 🔃",
+    "tools": ["latexmk-lualatex", "make-output-dir", "copy-artifacts"]
+    },
+    {
+    "name": "latexmk with xelatex 🔃",
+    "tools": ["latexmk-xelatex", "make-output-dir", "copy-artifacts"]
+    }
+    ],
+    "latex-workshop.latex.tools": [
+    {
+    "name": "latexmk",
+    "command": "latexmk",
+    "args": ["-outdir=%TMPDIR%", "-pdfdvi", "%DOC_EXT%"],
+    "env": {}
+    },
+    {
+    "name": "latexmk-lualatex",
+    "command": "latexmk",
+    "args": ["-outdir=%TMPDIR%", "-pdflua", "%DOC_EXT%"],
+    "env": {}
+    },
+    {
+    "name": "latexmk-xelatex",
+    "command": "latexmk",
+    "args": ["-outdir=%TMPDIR%", "-pdfxe", "%DOC_EXT%"],
+    "env": {}
+    },
+    {
+    "name": "make-output-dir",
+    "command": "mkdir",
+    "args": ["-p", "./out"],
+    "env": {}
+    },
+    {
+    "name": "copy-artifacts",
+    "command": "cp",
+    "args": ["%TMPDIR%/%DOCFILE%.pdf", "%TMPDIR%/%DOCFILE%.synctex.gz", "./out/"],
+    "env": {}
+    },
+    ],
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab"
+    },
+    "workspaceFolder": "/workdir",
+    "shutdownAction": "stopCompose"
+    }

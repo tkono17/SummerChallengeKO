@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  latexmk:
+    image: akashisn/latexmk:full
+    environment:
+      SHELL: "/bin/bash"
+    command: sleep infinity
+    volumes:
+      - ../:/workdir:delegated
