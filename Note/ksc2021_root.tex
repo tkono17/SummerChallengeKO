@@ -153,42 +153,22 @@ brew install cmake
 を実行すると、CMakeがインストールできます。
 
 \subsubsection{ROOTビルド方法}
-
+\url{https://root.cern/install/build_from_source/#quick-start}に全て書いてあります。
+ここでは例として, /opt/root をインストールディレクトリとした場合のビルド方法を示します。
 \begin{lstlisting}
 \$ cd ~
-\$ curl -O https://root.cern.ch/download/root_v6.16.00.source.tar.gz
-\$ cd /usr/local
-\$ sudo tar zxvf ~/root_v6.16.00.source.tar.gz
-
-\$ cd /usr/local/root-6.16.00
-\$ sudo mkdir obj
-\$ cd obj
-\$ sudo cmake ..
-
-...
--- Configuring done
--- Generating done
--- Build files have been written to: /usr/local/root-6.16.00/obj 
+\$ mkdir root_build
+\$ git clone --branch latest-stable https://github.com/root-project/root.git root_src
+\$ cd root_build
+\$ sudo cmake -DCMAKE_INSTALL_PREFIX=/opt/root ../root_src
+\$ sudo cmake --build . --target install -j4
 \end{lstlisting}
 
-ここまで出ればCMake完了です。
-
-\begin{lstlisting}[escapechar=!]
-\$ sudo make -j 8
-
-...
-[100%] Generating tutorials/hsimple.root
-Processing hsimple.C...
-hsimple : Real Time = 0.06 seconds Cpu Time = 0.05 seconds
-(TFile *) 0x7f9f7cda9760
-[100%] Built target hsimple 
+ビルドが成功したら, パスを通して終了です。
+\$HOME/.zshrcに以下を追記し、シェルを再起動します。
+\begin{lstlisting}
+source /opt/root/bin/thisroot.sh
 \end{lstlisting}
-
-ここまで出ればビルド完了です\footnote{\url{https://root.cern.ch/building-root}を参考にしてください。}。
-
-\subsubsection{ROOTの環境設定}
-
-bash
 
 \subsection{ROOTを用いたデータ解析}
 
