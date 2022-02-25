@@ -1,2 +1,5 @@
 # latex output folder
 Note/out/*
+
+# vscode 
+*/.vscode/*
