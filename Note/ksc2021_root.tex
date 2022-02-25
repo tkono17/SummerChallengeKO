@@ -109,12 +109,12 @@ Homebrew で ROOT ビルドに必要な CMake をインストールします。\
 Homebrew を使うには、Xcode の Command Line Tools が必要になります。
 ターミナルで次のコマンドを実行し、Xcode をインストールします。
 \begin{lstlisting}
-\$ xcode-select --install
+$ xcode-select --install
 \end{lstlisting}
 インストーラーの指示にしたがって、インストールを完了させます。
 正常にインストールされていることを確認するため、
 \begin{lstlisting}
-\$ xcode-select -v
+$ xcode-select -v
 \end{lstlisting}
 を実行します。バージョンが表示されていればインストール完了です。\par
 次に、Homebrew をインストールします。
@@ -148,7 +148,7 @@ https://docs.brew.sh
 
 Homebrew を用いて、CMakeをインストールします。
 \begin{lstlisting}
-brew install cmake
+$ brew install cmake
 \end{lstlisting}
 を実行すると、CMakeがインストールできます。
 
@@ -156,18 +156,18 @@ brew install cmake
 \url{https://root.cern/install/build_from_source/#quick-start}に全て書いてあります。
 ここでは例として, /opt/root をインストールディレクトリとした場合のビルド方法を示します。
 \begin{lstlisting}
-\$ cd ~
-\$ mkdir root_build
-\$ git clone --branch latest-stable https://github.com/root-project/root.git root_src
-\$ cd root_build
-\$ sudo cmake -DCMAKE_INSTALL_PREFIX=/opt/root ../root_src
-\$ sudo cmake --build . --target install -j4
+$ cd ~
+$ mkdir root_build
+$ git clone --branch latest-stable https://github.com/root-project/root.git root_src
+$ cd root_build
+$ sudo cmake -DCMAKE_INSTALL_PREFIX=/opt/root ../root_src
+$ sudo cmake --build . --target install -j4
 \end{lstlisting}
 
 ビルドが成功したら, パスを通して終了です。
 \$HOME/.zshrcに以下を追記し、シェルを再起動します。
 \begin{lstlisting}
-source /opt/root/bin/thisroot.sh
+$ source /opt/root/bin/thisroot.sh
 \end{lstlisting}
 
 \subsection{ROOTを用いたデータ解析}
