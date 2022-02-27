@@ -79,13 +79,36 @@ Windows OS で X window (画像表示用・root用) を使用するため、「V
           \item Save configuration : 「Save configuration」をクリック
         \end{itemize}
   \item システムトレイにVcXsrvのアイコンが表示されていれば OK です。
+
+  \item 追記：図が表示されなかったのでやったこと(WSL2だったから？) Ubuntu上で、xfce4をダウンロードします。dgm3 か lightdm かと聞かれるところで迷ったらdgm3を選んでください。
+\begin{lstlisting}
+sudo apt -y install xfce4-terminal xfce4
+\end{lstlisting}
+　\item エディタで ~/.bashrc をひらき、他の文字列とかぶらないところ(最後に書いとけば安全)に以下のことを記入して保存します。
+\begin{lstlisting}
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+\end{lstlisting}
+　\item 再度読み込めば、見えるようになるはず・・・。
+\begin{lstlisting}
+source ~/.bashrc
+\end{lstlisting}
+　\item　[おまけ] GUIアプリで動作確認
+\begin{lstlisting}　　　　
+sudo apt install x11-apps     サンプルアプリを入れます。
+xeyes         これを入力すると、目玉が現れるはず。
+\end{lstlisting}
+
+参考URL(\url{https://root.cern.ch/install/build_from_source/})
 \end{enumerate}
+
+
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=14cm]{XQuartz.png}
     \caption{XQuartzのHP。dmgファイルをクリックします。}
   \end{center}
 \end{figure}
+
 macOS の場合は、「XQuartz」をインストールします。
 \begin{enumerate}
   \item \url{https://www.xquartz.org/} にアクセスし、 dmg ファイルをダウンロードします。
@@ -93,9 +116,122 @@ macOS の場合は、「XQuartz」をインストールします。
   \item インストーラに従って、XQuartz をインストールします。
   \item インストールが完了すると、/アプリケーション/ユーティリティ/ に XQuartz.app が作成されていますので、正常に起動するか確認します。
 \end{enumerate}
+=======
 
-\subsubsection{SSH接続でリモートログインする}
-\begin{lstlisting}
-$ ssh -Y [user name]@[host.IP.Address]
+\subsection{データ解析用PCにログインする}
+ここでは、自分のPCからLinuxにリモートでログインする方法を説明します。
+
+\subsubsection{Windows Subsystem for Linux (WSL) を用いてLinuxを使う}
+Windows10 以降で使用可能になった Windows Subsystem for Linux(WSL) は、 Windows10 から Linux の実行環境を実現するサブシステムです。簡単にいうと、 Windows のアプリケーションとして Linux を実行できます。
+
+\vspace{1cm}
+{\large \bf WSL の有効化}
+\vspace{0.5cm}
+
+まず、Windows 側で Linux Subsystem を有効化します。
+\begin{enumerate}
+  \item スタートボタンを右クリックし、「アプリと機能」をクリックします。
+  \item 右上の「プログラムと機能」をクリックします。
+  \item 左サイドバーの「Windows の機能の有効化または無効化」をクリックします。
+  \item 「Windows Subsystem for Linux」を探して、チェックを入れます。
+  \item 「OK」を押すと、インストールが始まります。インストール後、再起動します。
+\end{enumerate}
+
+\vspace{1cm}
+{\large \bf Ubuntu のインストール}
+\vspace{0.5cm}
+
+\begin{enumerate}
+  \item Microsoft Store で「WSL」と検索します。もしくは「Ubuntu」。
+  \item アプリの中から「Ubuntu」を探し、インストールします。
+  \item インストール作業が終わったら、スタートに追加される「Ubuntu」をを起動します。
+  \item ユーザー名とパスワード を要求されるため、プロンプトに従って入力していきます。
+\end{enumerate}
+\begin{lstlisting}[caption=表示されるスクリプト例]
+Installing, this may take a few minutes...
+Please create a default UNIX user account. The username does not need to match your Windows username.
+For more information visit: https://aka.ms/wslusers
+Enter new UNIX username: [user name]
+Enter new UNIX password: [password]
+Retype new UNIX password: [password]
+passwd: password updated succsessfully
+Installation successful!
+To run a command as administrator (user ``root''), use ``sudo''.
+See ``man sudo_root'' for details.
 \end{lstlisting}
-これで、Linux サーバーにログインできます。
+
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item パッケージのアップデート\\
+        パッケージのアップデートは日々行ったほうが良いです。
+\end{enumerate}
+\begin{lstlisting}
+sudo apt update
+sudo apt upgrade
+\end{lstlisting}
+
+\vspace{1cm}
+{\large \bf X window のインストール}
+\vspace{0.5cm}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=14cm]{VcXsrv.png}
+    \caption{VcXsrvのHP。Downloadをクリックします。}
+  \end{center}
+\end{figure}
+
+Windows OS で X window (画像表示用・root用) を使用するため、「VcXsrv」をインストールします。
+\begin{enumerate}
+  \item \url{https://sourceforge.net/projects/vcxsrv/} にアクセスし、「Download」をクリックします。
+  \item インストーラを起動し、オプションやインストール先などを指定してインストールします。
+        \begin{itemize}
+          \item Installation Option : 全てにチェックする。 (Full)
+          \item Installation Folder : C:¥Program File¥VcXsrv
+        \end{itemize}
+  \item インストール作業が終わったら、スタートに追加される「VcXsrv」をを起動します。
+  \item 起動するとウィザード画面が表示される。それぞれ選択し、設定を完了させます。
+        \begin{itemize}
+          \item Display settings : 好きなもので
+          \item Client startup : 次へ (start no client）
+          \item Extra settings : 次へ (Clipboard - Primary Selection, Native opengl
+          \item Save configuration : 「Save configuration」をクリック
+        \end{itemize}
+  \item システムトレイにVcXsrvのアイコンが表示されていれば OK です。
+
+  \item 追記：図が表示されなかったのでやったこと(WSL2だったから？) Ubuntu上で、xfce4をダウンロードします。dgm3 か lightdm かと聞かれるところで迷ったらdgm3を選んでください。
+\begin{lstlisting}
+sudo apt -y install xfce4-terminal xfce4
+\end{lstlisting}
+　\item エディタで ~/.bashrc をひらき、他の文字列とかぶらないところ(最後に書いとけば安全)に以下のことを記入して保存します。
+\begin{lstlisting}
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+\end{lstlisting}
+　\item 再度読み込めば、見えるようになるはず・・・。
+\begin{lstlisting}
+source ~/.bashrc
+\end{lstlisting}
+　\item　[おまけ] GUIアプリで動作確認
+\begin{lstlisting}　　　　
+sudo apt install x11-apps     サンプルアプリを入れます。
+xeyes         これを入力すると、目玉が現れるはず。
+\end{lstlisting}
+
+参考URL(\url{https://root.cern.ch/install/build_from_source/})
+\end{enumerate}
+
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=14cm]{XQuartz.png}
+    \caption{XQuartzのHP。dmgファイルをクリックします。}
+  \end{center}
+\end{figure}
+
+macOS の場合は、「XQuartz」をインストールします。
+\begin{enumerate}
+  \item \url{https://www.xquartz.org/} にアクセスし、 dmg ファイルをダウンロードします。
+  \item dmg ファイルを展開し、XQuartz.pkg をクリックして、起動します。
+  \item インストーラに従って、XQuartz をインストールします。
+  \item インストールが完了すると、/アプリケーション/ユーティリティ/ に XQuartz.app が作成されていますので、正常に起動するか確認します。
+\end{enumerate}
