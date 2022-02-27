@@ -87,7 +87,7 @@ vim ~/.bash_profile
 \begin{lstlisting}
 if [ -f ~/.bashrc ]; then
         . ~/bashrc
-fi        
+fi
 \end{lstlisting}
 一度Ubuntuを閉じてもう一度起動し、下のコマンドを入力してROOTが起動すれば成功です。
 \begin{lstlisting}
@@ -213,7 +213,27 @@ rootを起動する際に、引数にrootファイルを指定することでroo
   \end{center}
 \end{figure}
 
-example.root内にさらにtreeという名前でtreeを作っている場合、tree-$>$''コマンド''という書き方をすることができる。それにより、簡単に測定データを確認したりヒストグラムを描くことができる。コマンドとしては例えば、tree-$>$Print$\left(\right)$やtree-$>$Scan$\left(\right)$があり、Printはデータの数や種類、変数の方を確認でき、Scanは1つ1つのデータを実際に確認することができる。
+ファイルの中身をみると、こうなっているはず。
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=8cm]{SummerChallenge_ls_list.png}
+    \caption{rootファイルの中身を確認する}
+    \label{fig:ls_ROOT}
+  \end{center}
+\end{figure}
+
+ADC$\_$HIGH$\_$12-$>$Draw() でヒストグラムを描くことができる。
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=8cm]{SummerChallenge_draw_adc12.png}
+    \caption{ヒストグラムを描く}
+    \label{fig:ls_ROOT}
+  \end{center}
+\end{figure}
+
+example.root内にさらにtreeという名前でtreeを作っている場合、tree-$>$"コマンド"という書き方をすることができる。それにより、簡単に測定データを確認したりヒストグラムを描くことができる。コマンドとしては例えば、tree-$>$Print$\left(\right)$やtree-$>$Scan$\left(\right)$があり、Printはデータの数や種類、変数の方を確認でき、Scanは1つ1つのデータを実際に確認することができる。
 \begin{figure}[htbp]
   \begin{center}
     \begin{tabular}{c}
@@ -266,7 +286,7 @@ example.root内にさらにtreeという名前でtreeを作っている場合、
     for(Int_t i = 0;i < 10000;i++){
      Double_t x = gRandom->Gaus();
      h1->Fill(x);
-    }  
+    }
     h1->Draw();
  \end{lstlisting}
 ３行目でgRandomというものを用いてGauss分布に従う乱数を発生させ、それを4行目でFillというコマンドでh1のヒストグラムに詰めている。それをfor文で回して10000回詰めている。このヒストグラムをDrawすることでGauss分布に従うヒストグラムを描くことができる。今回は例として乱数をFillしたが、乱数の代わりに詰めたい値を詰めることで好きなヒストグラムを描くことができる。
@@ -287,15 +307,15 @@ void macro(){
 
 \begin{lstlisting}
 void macro(){
-    TFile *file = new TFile(inputfilename, "read"); 
+    TFile *file = new TFile(inputfilename, "read");
     TTree *tree = (TTree*)file->Get("tree");
- 
+
     Double_t adc[32]
     tree->SetBranchAddress("adc", &adc);
- 
+
     const Int_t N = tin->GetEntries();
     for (Int_t ientry = 0; ientry < N; ientry++) {
-     tree->GetEntry(ientry);    
+     tree->GetEntry(ientry);
      cout<<ientry<<''   ''<<adc[30]<<endl;
    }
 }

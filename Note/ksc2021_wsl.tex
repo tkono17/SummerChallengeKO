@@ -79,13 +79,39 @@ Windows OS で X window (画像表示用・root用) を使用するため、「V
           \item Save configuration : 「Save configuration」をクリック
         \end{itemize}
   \item システムトレイにVcXsrvのアイコンが表示されていれば OK です。
+
+  \item (追記：図が表示されなかったのでやったこと) Ubuntu上で、xfce4をダウンロードします。dgm3 か lightdm かと聞かれるところで迷ったらdgm3を選んでください。
+\begin{lstlisting}
+sudo apt -y install xfce4-terminal xfce4
+\end{lstlisting}
+　\item エディタで ~/.bashrc をひらき、他の文字列とかぶらないところ(最後に書いとけば安全)に以下のことを記入して保存します。
+\begin{lstlisting}
+export DIDPLAY=:0.0
+
+それでもだめなら
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+\end{lstlisting}
+　\item 再度読み込めば、見えるようになるはず・・・。
+\begin{lstlisting}
+source ~/.bashrc
+\end{lstlisting}
+　\item　[おまけ] GUIアプリで動作確認
+\begin{lstlisting}　　　　
+sudo apt install x11-apps     サンプルアプリを入れます。
+xeyes         これを入力すると、目玉が現れるはず。
+\end{lstlisting}
+
+参考URL(\url{https://github.com/ymap-team/ROOT2021/wiki/Install_ROOT_Windows-Ubuntu-20.04/})
 \end{enumerate}
+
+
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=14cm]{XQuartz.png}
     \caption{XQuartzのHP。dmgファイルをクリックします。}
   \end{center}
 \end{figure}
+
 macOS の場合は、「XQuartz」をインストールします。
 \begin{enumerate}
   \item \url{https://www.xquartz.org/} にアクセスし、 dmg ファイルをダウンロードします。
@@ -93,9 +119,3 @@ macOS の場合は、「XQuartz」をインストールします。
   \item インストーラに従って、XQuartz をインストールします。
   \item インストールが完了すると、/アプリケーション/ユーティリティ/ に XQuartz.app が作成されていますので、正常に起動するか確認します。
 \end{enumerate}
-
-\subsubsection{SSH接続でリモートログインする}
-\begin{lstlisting}
-$ ssh -Y [user name]@[host.IP.Address]
-\end{lstlisting}
-これで、Linux サーバーにログインできます。
