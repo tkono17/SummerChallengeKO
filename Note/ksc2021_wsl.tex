@@ -205,6 +205,9 @@ sudo apt -y install xfce4-terminal xfce4
 \end{lstlisting}
 　\item エディタで ~/.bashrc をひらき、他の文字列とかぶらないところ(最後に書いとけば安全)に以下のことを記入して保存します。
 \begin{lstlisting}
+export DISPLAY=:0.0
+
+それでもだめなら
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 \end{lstlisting}
 　\item 再度読み込めば、見えるようになるはず・・・。
@@ -217,7 +220,7 @@ sudo apt install x11-apps     サンプルアプリを入れます。
 xeyes         これを入力すると、目玉が現れるはず。
 \end{lstlisting}
 
-参考URL(\url{https://root.cern.ch/install/build_from_source/})
+参考URL(\url{https://github.com/ymap-team/ROOT2021/wiki/Install_ROOT_Windows-Ubuntu-20.04/})
 \end{enumerate}
 
 
