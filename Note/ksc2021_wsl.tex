@@ -84,7 +84,7 @@ Windows OS で X window (画像表示用・root用) を使用するため、「V
 \begin{lstlisting}
 sudo apt -y install xfce4-terminal xfce4
 \end{lstlisting}
-　\item エディタで ~/.bashrc をひらき、他の文字列とかぶらないところ(最後に書いとけば安全)に以下のことを記入して保存します。
+　\item エディタで \textasciitilde/.bashrc をひらき、他の文字列とかぶらないところ(最後に書いとけば安全)に以下のことを記入して保存します。
 \begin{lstlisting}
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 \end{lstlisting}
