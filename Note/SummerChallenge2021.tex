@@ -86,12 +86,13 @@ lineskip=-0.5ex
 \subsection{MPPCで取得されるデータの解析}
 MPPCで取得されるデータはEASIROCによってtree形式で保存される。今回はこのデータをROOTを用いて解析を行う。ここから解析に必要なROOTの知識を簡単に説明するが、すべてを説明することはできないためわからない部分は各自調べるかTAに質問したりするようにしてください。
 
-\input ksc2021_wsl.tex
 
 \input ksc2021_github.tex
 
+\clearpage
 \input ksc2021_root.tex
 
+\clearpage
 \subsection{Poisson統計}
 Poisson分布とはめったに起こらない事象を大量に測定した場合にこの分布に従うことが多い。式で表すと、
 \begin{equation}
@@ -122,6 +123,12 @@ $\lambda$が大きい場合はPoison分布はGauss分布(正規分布)に従う�
 
 また、演習３で光子数を減らした場合はフィットで平均光子数を求めることは難しい。その場合は平均光子数ではなく1光子以上のイベント数で考えるとよい。平均光子数そのものではないが、光子数が少ない場合には平均光子数に比例して1光子以上のイベント数も増加するため、それでも干渉縞を観測することができる。\footnote{物理的な説明をすると、1光子の干渉と仮定すると明線の部分では光子の存在確率が大きいため、光子を観測するイベント数が増加する。光子数が増加すると光子数0となるイベントは暗線であっても減少するため、この考え方で解析することは難しくなる。}
 
+\clearpage
+\section{ROOTのインストール}
+\label{sec:root_installation}
+\input ksc2021_root_installation.tex
+
+\clearpage
 \section{まとめ}
 \label{sec:lastsection}
 今回説明できたのはごく基本的な部分のみであり、今回の実験の解析についてもこれ以上の知識が必要になることがあると思う。c++の知識でわからないことがあれば
