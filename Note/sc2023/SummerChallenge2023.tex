@@ -6,6 +6,8 @@
 \usepackage{ascmac}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{bm}
 \usepackage{url}
 \usepackage[dvipdfmx]{hyperref}
@@ -51,37 +53,37 @@ lineskip=-0.5ex
 
 \subsection{演習１　光子を見る}
 まずは干渉縞を観測する前に, そのために用いる実験装置の使い方や仕組みを学ぶために簡単に光子の測定を行う.今回の実験では光源としてLED,検出器としてMPPC,EASIROCを用いる.それぞれの詳しい説明は後で述べるためここでは省略するが, 演習１でそれぞれの使い方を理解することを目的とする.
-\begin{itemize}
+\begin{enumerate}
   \item LEDをパルスジェネレータを用いて光らせ, それがきちんと光っていることを目視で確認する.
   \item MPPCで光子を観測する.そのためにはEASIROC,DELAYといったモジュールの使い方を理解して, さらにEASIROCの操作方法を理解する.
   \item データを解析する.ここで簡単なROOTの使い方を理解する.
-\end{itemize}
+\end{enumerate}
 
 \subsection{演習２　干渉縞を観測する}
-今回の実験のメインテーマとなるスリットを用いた干渉縞の観測を行う.この演習では, 干渉縞を観測できるセットアップとその結果の解析がメインになると思う.
-\begin{itemize}
+今回の実験のメインテーマとなるスリットを用いた干渉縞の観測を行う.この演習では, 干渉縞を観測できるセットアップとその結果の解析がメインになる.
+\begin{enumerate}
   \item レーザーポインタを用いてスリットの干渉縞を目視で確認する.実際の測定は暗箱内で行うため, 常にこの干渉縞を観測しているとイメージしながら以降の測定を行ってほしい.
-  \item 2重スリットを用いた干渉実験.まずは干渉縞がMPPCで観測できるようなセットアップにし, 稼働ステージでMPPCを移動させながら測定を行う.1回の移動で動かす距離は, 理論式から明線と暗線の間隔を計算し, そこから決めるとよい.
+  \item 2重スリットを用いた干渉実験.まずは干渉縞がMPPCで観測できるようなセットアップにし, 稼働ステージでMPPCを移動させながら測定を行う.
+  1回の移動で動かす距離と測定範囲は, 理論式から明線と暗線の間隔を計算し, そこから決める.
   \item ROOTを用いて測定データを解析して, 干渉縞のグラフを描く.具体的な流れについては後で説明するためここでは省略する.
-\end{itemize}
+\end{enumerate}
 
 \subsection{演習３　1光子の干渉縞を測定する}
-演習２からの変化として光子数を減らして, 1光子数での干渉縞の観測を目指す.解析手法はほとんど変わらず, 光量を抑える工夫をすればよい.基本的にはLEDへの印加電圧を下げれば光量は減少するが, それでも足りなければ各自で工夫してみてください.
-
+演習２からの変化として光子数を減らして, 1光子数での干渉縞の観測を目指す.解析手法はほとんど変わらず, 光量を抑える工夫をすればよい.基本的にはLEDへの印加電圧を下げれば光量は減少する. それでも足りなければ適宜工夫する.
+これにより,光子が粒子と波動の両方の性質を持っていることがわかるはずである.
 \clearpage
 
 %%原理
 \input ksc2023_theory.tex
 
+\clearpage
+
 %%実験装置及び測定方法
 \input ksc2023_exp.tex
 
-
+\clearpage
 \section{データ解析}
-\subsection{MPPCで取得されるデータの解析}
-MPPCで取得されるデータはEASIROCによってtree形式で保存される.今回はこのデータをROOTを用いて解析を行う.ここから解析に必要なROOTの知識を簡単に説明するが, すべてを説明することはできないためわからない部分は各自調べるかTAに質問したりするようにしてください.
-
-
+%Gitについて
 \input ksc2023_github.tex
 
 \clearpage
@@ -89,11 +91,11 @@ MPPCで取得されるデータはEASIROCによってtree形式で保存され�
 
 \clearpage
 \subsection{Poisson統計}
-Poisson分布とはめったに起こらない事象を大量に測定した場合にこの分布に従うことが多い.式で表すと, 
+めったに起こらない事象を大量に測定した場合、ポアソン分布に従うことが多い.式で表すと, 
 \begin{equation}
   P\left(n\right)=\frac{\lambda^n e^{-\lambda}}{n!}
 \end{equation}
-で, これは平均$\lambda$起こる事象がn回起こるときの確率を表す.今回の実験の場合はそれぞれの測定での光子数の分布はPoisson分布に従うと思われる.
+で, これは平均$\lambda$回起こる事象がn回起こるときの確率を表す.今回の実験の場合はそれぞれの測定での光子数の分布はPoisson分布に従うと思われる.
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=8cm]{../SummerChallenge_poisson.png}
@@ -150,9 +152,11 @@ ROOTについての情報は基本的なものは
 また, あまり全てを書きすぎると参加している皆さんが考えることがなくなってしまうため, あえて説明をしていない部分もある.なので, この資料を読んでわからないことがあれば遠慮せずにどんどん聞いてください.
 
 \begin{thebibliography}{9}
-  \bibitem{hamamatsu}
+  \bibitem{hamamatsu}浜松ホトニクス\\
   \url{https://www.hamamatsu.com/resources/pdf/ssd/03_handbook.pdf}
-  \bibitem{github}
+  \bibitem{github}GitHub\\
   \url{https://tech-blog.rakus.co.jp/entry/20200529/git} (2022/02/23)
+  \bibitem{movingstage}ステージコントローラ　SHOT102\\
+  \url{https://jp.optosigma.com/html/jp/software/motorize/manual_jp/SHOT-102.pdf}
 \end{thebibliography}
 \end{document}
