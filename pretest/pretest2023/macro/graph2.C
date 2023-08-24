@@ -1,11 +1,13 @@
-void graph2(){
+void graph2(const int n,const int fn){
   char filename[100];
-  const int n = 120;
+  char grtitle[100];
+  sprintf(grtitle,"data %03d" ,fn);
   TGraph *gr1 = new TGraph(n);
+  gr1->SetTitle(grtitle);
   TGraph *gr2 = new TGraph(n);
   std::cout<<"t"<<std::endl;
   for(int i=0; i<n; ++i){
-    sprintf(filename, "ksc_030/ksc_030_%04d.root",i);
+    sprintf(filename, "ksc_%03d/ksc_%03d_%04d.root",fn,fn,i);
     auto f = TFile::Open(filename);
     auto hist = dynamic_cast<TH1*>(f->Get("ADC_HIGH_0"));
     if(hist==nullptr){
@@ -20,10 +22,10 @@ void graph2(){
     //double p0 = func->Integral(810,870)/10000.;
     //std::cout<<p0<<std::endl;
     //double value = -std::log(p0);
-    if(i<67){
+    if(i%2==0){
       gr1->SetPoint(i , i, mean);
     }else{
-      gr2->SetPoint(i , 133-i, mean);
+      gr2->SetPoint(i , i, mean);
     }
     f->Close();
     delete f;
