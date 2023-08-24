@@ -1,9 +1,9 @@
 void hist(){
   char filename[100];
-  TH1F *kansho = new TH1F("kansho","",75,0.,75.);
+  TH1F *kansho = new TH1F("kansho","",120,0.,120.);
   std::cout<<"t"<<std::endl;
-  for(int i=0; i<75; ++i){
-    sprintf(filename, "test_009_%03d.root",i);
+  for(int i=0; i<120; ++i){
+    sprintf(filename, "ksc_030/ksc_030_%04d.root",i);
     auto f = TFile::Open(filename);
     auto hist = dynamic_cast<TH1*>(f->Get("ADC_HIGH_0"));
     if(hist==nullptr){
