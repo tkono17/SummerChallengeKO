@@ -1,0 +1,18 @@
+# fileName meanValue
+data/0047_000.root 2448.58
+data/0047_001.root 854.54
+data/0047_002.root 850.268
+data/0047_003.root 849.149
+data/0047_004.root 853.39
+data/0047_005.root 863.771
+data/0047_006.root 869.608
+data/0047_007.root 864.457
+data/0047_008.root 852.993
+data/0047_009.root 848.33
+data/0047_010.root 850.146
+data/0047_011.root 853.122
+data/0047_012.root 851.393
+data/0047_013.root 847.631
+data/0047_014.root 842.742
+data/0047_015.root 0
+data/0047_016.root 840.744
