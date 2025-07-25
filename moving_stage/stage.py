@@ -23,7 +23,7 @@ parser = argparse.ArgumentParser(
     add_help=True,
 )
 
-parser.add_argument("-o", "--origin", help="back to the origin", nargs="?")
+parser.add_argument("-o", "--origin", help="back to the origin", action="store_true")
 parser.add_argument("-r", "--reset", help="reset data", action="store_true")
 parser.add_argument(
     "-mr", "--moveright", help="move right by number of pulses", nargs=1, type=int
@@ -71,24 +71,24 @@ elif args.reset:
     print(read)
 
 elif args.moveright:
-    c1 = "M:1+P" + str(args.moveright[0])
+    c1 = "M:1-P" + str(args.moveright[0])
     print(c1)
     read = sendCommand(ser, c1) + sendCommand(ser, "G:")
     print(read)
 
 elif args.moveleft:
-    c1 = "M:1-P" + str(args.moveleft[0])
+    c1 = "M:1+P" + str(args.moveleft[0])
     print(c1)
     read = sendCommand(ser, c1) + sendCommand(ser, "G:")
     print(read)
 
 elif args.positionright:
-    c1 = "A:1+P" + str(args.positionright[0])
+    c1 = "A:1-P" + str(args.positionright[0])
     read = sendCommand(ser, c1) + sendCommand(ser, "G:")
     print(read)
 
 elif args.positionleft:
-    c1 = "A:1-P" + str(args.positionleft[0])
+    c1 = "A:1+P" + str(args.positionleft[0])
     read = sendCommand(ser, c1) + sendCommand(ser, "G:")
     print(read)
 
