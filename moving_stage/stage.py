@@ -60,12 +60,12 @@ elif args.moveleft:
     print(read)
 
 elif args.positionright:
-    c1 = "A:1+P" + str(args.actionright[0])
+    c1 = "A:1+P" + str(args.positionright[0])
     read = sendCommand(ser, c1) + sendCommand(ser, "G:")
     print(read)
 
 elif args.positionleft:
-    c1 = "A:1-P" + str(args.actionleft[0])
+    c1 = "A:1-P" + str(args.positionleft[0])
     read = sendCommand(ser, c1) + sendCommand(ser, "G:")
     print(read)
 
