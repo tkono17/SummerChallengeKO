@@ -1,0 +1,19 @@
+help
+
+options:
+  -h, --help            show this help message and exit
+  -o [ORIGIN], --origin [ORIGIN]
+                        back to the origin
+  -r, --reset           reset data
+  -mr MOVERIGHT, --moveright MOVERIGHT
+                        move right by number of pulses
+  -ml MOVELEFT, --moveleft MOVELEFT
+                        move left by number of pulses
+  -pr POSITIONRIGHT, --positionright POSITIONRIGHT
+                        move right to the cordinate of the pulse
+  -pl POSITIONLEFT, --positionleft POSITIONLEFT
+                        move left to the cordinate of the pulse
+  -s STOP, --stop STOP  stop the action
+  -q, --q               return the data of stage
+
+end
